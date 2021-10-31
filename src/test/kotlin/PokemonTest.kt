@@ -1,7 +1,6 @@
 import com.sasakirione.pokemon.simulator.domain.value.status.Effort
 import com.sasakirione.pokemon.simulator.domain.value.status.Individual
 import org.junit.jupiter.api.DisplayName
-import kotlin.test.Asserter
 import kotlin.test.Test
 import kotlin.test.assertFails
 
@@ -20,5 +19,11 @@ class PokemonTest {
         val individual = Individual.IndividualBuilder().setA(0).setS(0).build()
         assert(individual.getS() == 0)
         assert(individual.getH() == 31)
+    }
+
+    @Test
+    @DisplayName("")
+    fun test003() {
+
     }
 }
