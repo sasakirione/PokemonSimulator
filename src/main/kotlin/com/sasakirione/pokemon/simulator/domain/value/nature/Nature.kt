@@ -25,6 +25,10 @@ class Nature(private val nature: String) {
         }
     }
 
+    /**
+     * 性格により上昇補正がかかるステータスを返します
+     * @return 上昇する能力値のStatusTypeクラス
+     */
     private fun plusNature(): StatusType {
         return when(nature) {
             "さみしがり", "いじっぱり", "やんちゃ", "ゆうかん" -> StatusType.A
@@ -36,6 +40,10 @@ class Nature(private val nature: String) {
         }
     }
 
+    /**
+     * 性格により下降補正がかかるステータスを返します
+     * @return 下降する能力値のStatusTypeクラス
+     */
     private fun minusNature(): StatusType {
         return when(nature) {
             "おくびょう", "ひかえめ", "ずぶとい", "おだやか" -> StatusType.A

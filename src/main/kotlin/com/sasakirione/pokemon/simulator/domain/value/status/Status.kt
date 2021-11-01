@@ -28,6 +28,12 @@ class Status(individual: Individual, effort: Effort, base: Base, natureCorrectio
         real = realSource.toMutableList()
     }
 
+    /**
+     * 性格補正を計算します
+     * @param realSourceWork 性格補正前実数値
+     * @param natureCorrection 性格補正
+     * @return 性格補正後実数値
+     */
     private fun calculateNatureCorrection(
         realSourceWork: List<Pair<StatusType, Int>>,
         natureCorrection: List<Pair<StatusCorrection, StatusType>>
