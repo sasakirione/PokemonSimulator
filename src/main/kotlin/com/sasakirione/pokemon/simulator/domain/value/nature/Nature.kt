@@ -28,7 +28,7 @@ class Nature(private val nature: String) {
             "ひかえめ", "おっとり", "うっかりや", "れいせい" -> StatusType.C
             "おだやか", "おとなしい", "しんちょう", "なまいき" -> StatusType.D
             "おくびょう", "ようき", "せっかち", "むじゃき" -> StatusType.S
-            else -> StatusType.H
+            else -> StatusType.NONE
         }
     }
 
@@ -39,7 +39,7 @@ class Nature(private val nature: String) {
             "ようき", "いじっぱり", "わんぱく", "しんちょう" -> StatusType.C
             "やんちゃ", "のうてんき", "うっかりや", "むじゃき" -> StatusType.D
             "ゆうかん", "のんき", "れいせい", "なまいき" -> StatusType.S
-            else -> StatusType.H
+            else -> StatusType.NONE
         }
     }
 

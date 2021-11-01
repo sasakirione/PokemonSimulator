@@ -8,6 +8,7 @@ package com.sasakirione.pokemon.simulator.domain.value.status
  * C: 特攻
  * D: 特防
  * S: 素早さ
+ * NONE: 選択なし
  */
 enum class StatusType {
     H,
@@ -15,5 +16,6 @@ enum class StatusType {
     B,
     C,
     D,
-    S
+    S,
+    NONE
 }

@@ -32,7 +32,7 @@ class Status(individual: Individual, effort: Effort, base: Base, natureCorrectio
         realSourceWork: List<Pair<StatusType, Int>>,
         natureCorrection: List<Pair<StatusCorrection, StatusType>>
     ): List<Pair<StatusType, Int>> {
-        if (natureCorrection[0].second == StatusType.H) {
+        if (natureCorrection[0].second == StatusType.NONE) {
             return realSourceWork
         }
         val plus = natureCorrection.first { pair -> pair.first == StatusCorrection.PLUS }
@@ -43,7 +43,6 @@ class Status(individual: Individual, effort: Effort, base: Base, natureCorrectio
                 minus.second -> it.first to floor(it.second * 0.9).toInt()
                 else -> it.first to it.second
             }
-
         }
     }
 
