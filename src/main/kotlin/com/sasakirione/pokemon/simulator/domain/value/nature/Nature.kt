@@ -15,6 +15,10 @@ class Nature(private val nature: String) {
         checkNature(nature)
     }
 
+    /**
+     * 実在する性格かチェックを行う行う
+     * @throw IllegalArgumentException
+     */
     private fun checkNature(natureCandidate: String) {
         if (!NatureConst.NATURE.contains(natureCandidate)) {
             throw IllegalArgumentException("存在しない性格です")
