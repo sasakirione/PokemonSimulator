@@ -1,5 +1,6 @@
 package com.sasakirione.pokemon.simulator.domain.value.dynamic
 
+import kotlin.math.floor
 import kotlin.math.max
 
 class HP(maxHP: Int) {
@@ -13,5 +14,13 @@ class HP(maxHP: Int) {
      */
     fun decreaseHP(amount: Int) {
         currentHP = max(0, currentHP - amount)
+    }
+
+    /**
+     * HPを半分にする
+     */
+    fun makeHPHalf() {
+        val amount = floor(currentHP / 2.0).toInt()
+        decreaseHP(amount)
     }
 }

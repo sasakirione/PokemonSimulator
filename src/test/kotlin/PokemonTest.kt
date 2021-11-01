@@ -1,3 +1,4 @@
+import com.sasakirione.pokemon.simulator.domain.value.dynamic.HP
 import com.sasakirione.pokemon.simulator.domain.value.status.Effort
 import com.sasakirione.pokemon.simulator.domain.value.status.Individual
 import org.junit.jupiter.api.DisplayName
@@ -23,8 +24,12 @@ class PokemonTest {
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("HPを担当するクラス")
     fun test003() {
-
+        val hp = HP(181)
+        hp.makeHPHalf()
+        assert(hp.currentHP == 91)
+        hp.decreaseHP(200)
+        assert(hp.currentHP == 0)
     }
 }

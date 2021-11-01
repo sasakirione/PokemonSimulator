@@ -6,7 +6,7 @@ package com.sasakirione.pokemon.simulator.domain.value.dynamic
  * FROZEN：こおり
  * BURNED：やけど
  * POISONED：どく
- * MORE_POISONED：もうどく
+ * BAD_POISONED：もうどく
  * ASLEEP：ねむり
  * CONFUSION；こんらん
  */
@@ -15,7 +15,7 @@ enum class StatusAilmentType {
     FROZEN,
     BURNED,
     POISONED,
-    MORE_POISONED,
+    BAD_POISONED,
     ASLEEP,
     CONFUSION
 }
