@@ -9,6 +9,7 @@ class PokemonTest {
     @DisplayName("努力値担当クラスのテスト")
     fun test001() {
         val effort1 = Effort(arrayOf(252, 0, 0, 252, 0, 4))
+        println(effort1.getH())
         assertFails { Effort(arrayOf(252, 252, 252, 252, 252, 252)) }
         assertFails { Effort(arrayOf(500, 0, 0, 0, 0, 10)) }
     }

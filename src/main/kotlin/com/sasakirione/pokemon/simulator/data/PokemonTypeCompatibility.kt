@@ -1,5 +1,7 @@
 package com.sasakirione.pokemon.simulator.data
 
+import com.sasakirione.pokemon.simulator.domain.value.nature.TypeSelect
+
 /**
  * ポケモンのタイプ相性を担当するクラス
  */
@@ -11,214 +13,214 @@ object PokemonTypeCompatibility {
      * @param defense 防御側のタイプ
      * @return タイプ倍率
      */
-    fun typeCompatibility(attack: String, defense: String): Double {
+    fun typeCompatibility(attack: TypeSelect, defense: TypeSelect): Double {
         var magnification = 1.0
-        if (attack == "ノーマル") {
-            if (defense == "いわ" || defense == "はがね") {
+        if (attack == TypeSelect.NORMAL) {
+            if (defense == TypeSelect.ROCK || defense == TypeSelect.STEEL) {
                 magnification = 0.5
                 return magnification
             }
-            if (defense == "ゴースト") {
+            if (defense == TypeSelect.GHOST) {
                 magnification = 0.0
                 return magnification
             }
             return magnification
         }
-        if (attack == "ほのお") {
-            if (defense == "くさ" || defense == "こおり" || defense == "むし" || defense == "はがね") {
+        if (attack == TypeSelect.FIRE) {
+            if (defense == TypeSelect.GRASS || defense == TypeSelect.ICE || defense == TypeSelect.BUG || defense == TypeSelect.STEEL) {
                 magnification = 2.0
                 return magnification
             }
-            if (defense == "ほのお" || defense == "みず" || defense == "いわ" || defense == "ドラゴン") {
+            if (defense == TypeSelect.FIRE || defense == TypeSelect.WATER || defense == TypeSelect.ROCK || defense == TypeSelect.DRAGON) {
                 magnification = 0.5
                 return magnification
             }
             return magnification
         }
-        if (attack == "みず") {
-            if (defense == "ほのお" || defense == "じめん" || defense == "いわ") {
+        if (attack == TypeSelect.WATER) {
+            if (defense == TypeSelect.FIRE || defense == TypeSelect.GROUND || defense == TypeSelect.ROCK) {
                 magnification = 2.0
                 return magnification
             }
-            if (defense == "みず" || defense == "くさ" || defense == "ドラゴン") {
+            if (defense == TypeSelect.WATER || defense == TypeSelect.GRASS || defense == TypeSelect.DRAGON) {
                 magnification = 0.5
                 return magnification
             }
             return magnification
         }
-        if (attack == "でんき") {
-            if (defense == "みず" || defense == "ひこう") {
+        if (attack == TypeSelect.ELECTRIC) {
+            if (defense == TypeSelect.WATER || defense == TypeSelect.FLYING) {
                 magnification = 2.0
                 return magnification
             }
-            if (defense == "でんき" || defense == "くさ" || defense == "ドラゴン") {
+            if (defense == TypeSelect.ELECTRIC || defense == TypeSelect.GRASS || defense == TypeSelect.DRAGON) {
                 magnification = 0.5
                 return magnification
             }
-            if (defense == "じめん") {
+            if (defense == TypeSelect.GROUND) {
                 magnification = 0.0
                 return magnification
             }
             return magnification
         }
-        if (attack == "くさ") {
-            if (defense == "みず" || defense == "じめん" || defense == "いわ") {
+        if (attack == TypeSelect.GRASS) {
+            if (defense == TypeSelect.WATER || defense == TypeSelect.GROUND || defense == TypeSelect.ROCK) {
                 magnification = 2.0
                 return magnification
             }
-            if (defense == "ほのお" || defense == "くさ" || defense == "どく" || defense == "ひこう" || defense == "むし" || defense == "ドラゴン" || defense == "はがね") {
+            if (defense == TypeSelect.FIRE || defense == TypeSelect.GRASS || defense == TypeSelect.POISON || defense == TypeSelect.FLYING || defense == TypeSelect.BUG || defense == TypeSelect.DRAGON || defense == TypeSelect.STEEL) {
                 magnification = 0.5
                 return magnification
             }
             return magnification
         }
-        if (attack == "こおり") {
-            if (defense == "くさ" || defense == "じめん" || defense == "ひこう" || defense == "ドラゴン") {
+        if (attack == TypeSelect.ICE) {
+            if (defense == TypeSelect.GRASS || defense == TypeSelect.GROUND || defense == TypeSelect.FLYING || defense == TypeSelect.DRAGON) {
                 magnification = 2.0
                 return magnification
             }
-            if (defense == "ほのお" || defense == "みず" || defense == "こおり" || defense == "はがね") {
+            if (defense == TypeSelect.FIRE || defense == TypeSelect.WATER || defense == TypeSelect.ICE || defense == TypeSelect.STEEL) {
                 magnification = 0.5
                 return magnification
             }
             return magnification
         }
-        if (attack == "かくとう") {
-            if (defense == "ノーマル" || defense == "こおり" || defense == "いわ" || defense == "あく" || defense == "はがね") {
+        if (attack ==TypeSelect.FIGHTING) {
+            if (defense == TypeSelect.NORMAL || defense == TypeSelect.ICE || defense == TypeSelect.ROCK || defense == TypeSelect.DARK || defense == TypeSelect.STEEL) {
                 magnification = 2.0
                 return magnification
             }
-            if (defense == "どく" || defense == "ひこう" || defense == "エスパー" || defense == "むし" || defense == "フェアリー") {
+            if (defense == TypeSelect.POISON || defense == TypeSelect.FLYING || defense == TypeSelect.PSYCHIC || defense == TypeSelect.BUG || defense == TypeSelect.FAIRLY) {
                 magnification = 0.5
                 return magnification
             }
         }
-        if (attack == "どく") {
-            if (defense == "くさ" || defense == "フェアリー") {
+        if (attack == TypeSelect.POISON) {
+            if (defense == TypeSelect.GRASS || defense == TypeSelect.FAIRLY) {
                 magnification = 2.0
                 return magnification
             }
-            if (defense == "どく" || defense == "じめん" || defense == "いわ" || defense == "ゴースト") {
+            if (defense == TypeSelect.POISON || defense == TypeSelect.GROUND || defense == TypeSelect.ROCK || defense == TypeSelect.GHOST) {
                 magnification = 0.5
                 return magnification
             }
-            if (defense == "はがね") {
+            if (defense == TypeSelect.STEEL) {
                 magnification = 0.0
                 return magnification
             }
         }
-        if (attack == "じめん") {
-            if (defense == "ほのお" || defense == "でんき" || defense == "どく" || defense == "いわ" || defense == "はがね") {
+        if (attack == TypeSelect.GROUND) {
+            if (defense == TypeSelect.FIRE || defense == TypeSelect.ELECTRIC || defense == TypeSelect.POISON || defense == TypeSelect.ROCK || defense == TypeSelect.STEEL) {
                 magnification = 2.0
                 return magnification
             }
-            if (defense == "くさ" || defense == "むし") {
+            if (defense == TypeSelect.GRASS || defense == TypeSelect.BUG) {
                 magnification = 0.5
                 return magnification
             }
-            if (defense == "ひこう") {
+            if (defense == TypeSelect.FLYING) {
                 magnification = 0.0
                 return magnification
             }
         }
-        if (attack == "ひこう") {
-            if (defense == "くさ" || defense == "かくとう" || defense == "むし") {
+        if (attack == TypeSelect.FLYING) {
+            if (defense == TypeSelect.GRASS || defense ==TypeSelect.FIGHTING || defense == TypeSelect.BUG) {
                 magnification = 2.0
                 return magnification
             }
-            if (defense == "でんき" || defense == "いわ" || defense == "はがね") {
+            if (defense == TypeSelect.ELECTRIC || defense == TypeSelect.ROCK || defense == TypeSelect.STEEL) {
                 magnification = 0.5
                 return magnification
             }
         }
-        if (attack == "エスパー") {
-            if (defense == "かくとう" || defense == "どく") {
+        if (attack == TypeSelect.PSYCHIC) {
+            if (defense ==TypeSelect.FIGHTING || defense == TypeSelect.POISON) {
                 magnification = 2.0
                 return magnification
             }
-            if (defense == "エスパー" || defense == "はがね") {
+            if (defense == TypeSelect.PSYCHIC || defense == TypeSelect.STEEL) {
                 magnification = 0.5
                 return magnification
             }
-            if (defense == "あく") {
+            if (defense == TypeSelect.DARK) {
                 magnification = 0.0
                 return magnification
             }
         }
-        if (attack == "むし") {
-            if (defense == "くさ" || defense == "エスパー" || defense == "あく") {
+        if (attack == TypeSelect.BUG) {
+            if (defense == TypeSelect.GRASS || defense == TypeSelect.PSYCHIC || defense == TypeSelect.DARK) {
                 magnification = 2.0
                 return magnification
             }
-            if (defense == "ほのお" || defense == "かくとう" || defense == "どく" || defense == "ひこう" || defense == "ゴースト" || defense == "はがね" || defense == "フェアリー") {
+            if (defense == TypeSelect.FIRE || defense ==TypeSelect.FIGHTING || defense == TypeSelect.POISON || defense == TypeSelect.FLYING || defense == TypeSelect.GHOST || defense == TypeSelect.STEEL || defense == TypeSelect.FAIRLY) {
                 magnification = 0.5
                 return magnification
             }
         }
-        if (attack == "いわ") {
-            if (defense == "ほのお" || defense == "ひこう" || defense == "こおり" || defense == "むし") {
+        if (attack == TypeSelect.ROCK) {
+            if (defense == TypeSelect.FIRE || defense == TypeSelect.FLYING || defense == TypeSelect.ICE || defense == TypeSelect.BUG) {
                 magnification = 2.0
                 return magnification
             }
-            if (defense == "かくとう" || defense == "じめん" || defense == "はがね") {
+            if (defense ==TypeSelect.FIGHTING || defense == TypeSelect.GROUND || defense == TypeSelect.STEEL) {
                 magnification = 0.5
                 return magnification
             }
         }
-        if (attack == "ゴースト") {
-            if (defense == "エスパー" || defense == "ゴースト") {
+        if (attack == TypeSelect.GHOST) {
+            if (defense == TypeSelect.PSYCHIC || defense == TypeSelect.GHOST) {
                 magnification = 2.0
                 return magnification
             }
-            if (defense == "あく") {
+            if (defense == TypeSelect.DARK) {
                 magnification = 0.5
                 return magnification
             }
-            if (defense == "ノーマル") {
+            if (defense == TypeSelect.NORMAL) {
                 magnification = 0.0
                 return magnification
             }
         }
-        if (attack == "ドラゴン") {
-            if (defense == "ドラゴン") {
+        if (attack == TypeSelect.DRAGON) {
+            if (defense == TypeSelect.DRAGON) {
                 magnification = 2.0
                 return magnification
             }
-            if (defense == "はがね") {
+            if (defense == TypeSelect.STEEL) {
                 magnification = 0.5
                 return magnification
             }
-            if (defense == "フェアリー") {
+            if (defense == TypeSelect.FAIRLY) {
                 magnification = 0.0
                 return magnification
             }
         }
-        if (attack == "あく") {
-            if (defense == "エスパー" || defense == "ゴースト") {
+        if (attack == TypeSelect.DARK) {
+            if (defense == TypeSelect.PSYCHIC || defense == TypeSelect.GHOST) {
                 magnification = 2.0
                 return magnification
             }
-            if (defense == "かくとう" || defense == "あく" || defense == "フェアリー") {
+            if (defense ==TypeSelect.FIGHTING || defense == TypeSelect.DARK || defense == TypeSelect.FAIRLY) {
                 magnification = 0.5
                 return magnification
             }
         }
-        if (attack == "はがね") {
-            if (defense == "こおり" || defense == "いわ" || defense == "フェアリー") {
+        if (attack == TypeSelect.STEEL) {
+            if (defense == TypeSelect.ICE || defense == TypeSelect.ROCK || defense == TypeSelect.FAIRLY) {
                 magnification = 2.0
                 return magnification
             }
-            if (defense == "ほのお" || defense == "みず" || defense == "でんき" || defense == "はがね") {
+            if (defense == TypeSelect.FIRE || defense == TypeSelect.WATER || defense == TypeSelect.ELECTRIC || defense == TypeSelect.STEEL) {
                 magnification = 0.5
                 return magnification
             }
         }
-        if (attack == "フェアリー") {
-            if (defense == "かくとう" || defense == "あく" || defense == "ドラゴン") {
+        if (attack == TypeSelect.FAIRLY) {
+            if (defense ==TypeSelect.FIGHTING || defense == TypeSelect.DARK || defense == TypeSelect.DRAGON) {
                 magnification = 2.0
                 return magnification
             }
-            if (defense == "ほのお" || defense == "どく" || defense == "はがね") {
+            if (defense == TypeSelect.FIRE || defense == TypeSelect.POISON || defense == TypeSelect.STEEL) {
                 magnification = 0.5
                 return magnification
             }
