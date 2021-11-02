@@ -1,230 +1,150 @@
 package com.sasakirione.pokemon.simulator.data
 
 import com.sasakirione.pokemon.simulator.domain.value.nature.TypeSelect
+import com.sasakirione.pokemon.simulator.domain.value.nature.TypeSelect.*
 
 /**
- * ポケモンのタイプ相性を担当するクラス
+ * ポケモンのタイプ相性を担当するオブジェクト
  */
 object PokemonTypeCompatibility {
     /**
-     * タイプ相性を判定する
      * 攻撃側のタイプと防御側のタイプをいれた時にタイプ相性の倍率を返します。
      * @param attack 攻撃側のタイプ
      * @param defense 防御側のタイプ
      * @return タイプ倍率
      */
-    fun typeCompatibility(attack: TypeSelect, defense: TypeSelect): Double {
-        var magnification = 1.0
-        if (attack == TypeSelect.NORMAL) {
-            if (defense == TypeSelect.ROCK || defense == TypeSelect.STEEL) {
-                magnification = 0.5
-                return magnification
-            }
-            if (defense == TypeSelect.GHOST) {
-                magnification = 0.0
-                return magnification
-            }
-            return magnification
-        }
-        if (attack == TypeSelect.FIRE) {
-            if (defense == TypeSelect.GRASS || defense == TypeSelect.ICE || defense == TypeSelect.BUG || defense == TypeSelect.STEEL) {
-                magnification = 2.0
-                return magnification
-            }
-            if (defense == TypeSelect.FIRE || defense == TypeSelect.WATER || defense == TypeSelect.ROCK || defense == TypeSelect.DRAGON) {
-                magnification = 0.5
-                return magnification
-            }
-            return magnification
-        }
-        if (attack == TypeSelect.WATER) {
-            if (defense == TypeSelect.FIRE || defense == TypeSelect.GROUND || defense == TypeSelect.ROCK) {
-                magnification = 2.0
-                return magnification
-            }
-            if (defense == TypeSelect.WATER || defense == TypeSelect.GRASS || defense == TypeSelect.DRAGON) {
-                magnification = 0.5
-                return magnification
-            }
-            return magnification
-        }
-        if (attack == TypeSelect.ELECTRIC) {
-            if (defense == TypeSelect.WATER || defense == TypeSelect.FLYING) {
-                magnification = 2.0
-                return magnification
-            }
-            if (defense == TypeSelect.ELECTRIC || defense == TypeSelect.GRASS || defense == TypeSelect.DRAGON) {
-                magnification = 0.5
-                return magnification
-            }
-            if (defense == TypeSelect.GROUND) {
-                magnification = 0.0
-                return magnification
-            }
-            return magnification
-        }
-        if (attack == TypeSelect.GRASS) {
-            if (defense == TypeSelect.WATER || defense == TypeSelect.GROUND || defense == TypeSelect.ROCK) {
-                magnification = 2.0
-                return magnification
-            }
-            if (defense == TypeSelect.FIRE || defense == TypeSelect.GRASS || defense == TypeSelect.POISON || defense == TypeSelect.FLYING || defense == TypeSelect.BUG || defense == TypeSelect.DRAGON || defense == TypeSelect.STEEL) {
-                magnification = 0.5
-                return magnification
-            }
-            return magnification
-        }
-        if (attack == TypeSelect.ICE) {
-            if (defense == TypeSelect.GRASS || defense == TypeSelect.GROUND || defense == TypeSelect.FLYING || defense == TypeSelect.DRAGON) {
-                magnification = 2.0
-                return magnification
-            }
-            if (defense == TypeSelect.FIRE || defense == TypeSelect.WATER || defense == TypeSelect.ICE || defense == TypeSelect.STEEL) {
-                magnification = 0.5
-                return magnification
-            }
-            return magnification
-        }
-        if (attack ==TypeSelect.FIGHTING) {
-            if (defense == TypeSelect.NORMAL || defense == TypeSelect.ICE || defense == TypeSelect.ROCK || defense == TypeSelect.DARK || defense == TypeSelect.STEEL) {
-                magnification = 2.0
-                return magnification
-            }
-            if (defense == TypeSelect.POISON || defense == TypeSelect.FLYING || defense == TypeSelect.PSYCHIC || defense == TypeSelect.BUG || defense == TypeSelect.FAIRLY) {
-                magnification = 0.5
-                return magnification
-            }
-        }
-        if (attack == TypeSelect.POISON) {
-            if (defense == TypeSelect.GRASS || defense == TypeSelect.FAIRLY) {
-                magnification = 2.0
-                return magnification
-            }
-            if (defense == TypeSelect.POISON || defense == TypeSelect.GROUND || defense == TypeSelect.ROCK || defense == TypeSelect.GHOST) {
-                magnification = 0.5
-                return magnification
-            }
-            if (defense == TypeSelect.STEEL) {
-                magnification = 0.0
-                return magnification
-            }
-        }
-        if (attack == TypeSelect.GROUND) {
-            if (defense == TypeSelect.FIRE || defense == TypeSelect.ELECTRIC || defense == TypeSelect.POISON || defense == TypeSelect.ROCK || defense == TypeSelect.STEEL) {
-                magnification = 2.0
-                return magnification
-            }
-            if (defense == TypeSelect.GRASS || defense == TypeSelect.BUG) {
-                magnification = 0.5
-                return magnification
-            }
-            if (defense == TypeSelect.FLYING) {
-                magnification = 0.0
-                return magnification
-            }
-        }
-        if (attack == TypeSelect.FLYING) {
-            if (defense == TypeSelect.GRASS || defense ==TypeSelect.FIGHTING || defense == TypeSelect.BUG) {
-                magnification = 2.0
-                return magnification
-            }
-            if (defense == TypeSelect.ELECTRIC || defense == TypeSelect.ROCK || defense == TypeSelect.STEEL) {
-                magnification = 0.5
-                return magnification
-            }
-        }
-        if (attack == TypeSelect.PSYCHIC) {
-            if (defense ==TypeSelect.FIGHTING || defense == TypeSelect.POISON) {
-                magnification = 2.0
-                return magnification
-            }
-            if (defense == TypeSelect.PSYCHIC || defense == TypeSelect.STEEL) {
-                magnification = 0.5
-                return magnification
-            }
-            if (defense == TypeSelect.DARK) {
-                magnification = 0.0
-                return magnification
-            }
-        }
-        if (attack == TypeSelect.BUG) {
-            if (defense == TypeSelect.GRASS || defense == TypeSelect.PSYCHIC || defense == TypeSelect.DARK) {
-                magnification = 2.0
-                return magnification
-            }
-            if (defense == TypeSelect.FIRE || defense ==TypeSelect.FIGHTING || defense == TypeSelect.POISON || defense == TypeSelect.FLYING || defense == TypeSelect.GHOST || defense == TypeSelect.STEEL || defense == TypeSelect.FAIRLY) {
-                magnification = 0.5
-                return magnification
-            }
-        }
-        if (attack == TypeSelect.ROCK) {
-            if (defense == TypeSelect.FIRE || defense == TypeSelect.FLYING || defense == TypeSelect.ICE || defense == TypeSelect.BUG) {
-                magnification = 2.0
-                return magnification
-            }
-            if (defense ==TypeSelect.FIGHTING || defense == TypeSelect.GROUND || defense == TypeSelect.STEEL) {
-                magnification = 0.5
-                return magnification
-            }
-        }
-        if (attack == TypeSelect.GHOST) {
-            if (defense == TypeSelect.PSYCHIC || defense == TypeSelect.GHOST) {
-                magnification = 2.0
-                return magnification
-            }
-            if (defense == TypeSelect.DARK) {
-                magnification = 0.5
-                return magnification
-            }
-            if (defense == TypeSelect.NORMAL) {
-                magnification = 0.0
-                return magnification
-            }
-        }
-        if (attack == TypeSelect.DRAGON) {
-            if (defense == TypeSelect.DRAGON) {
-                magnification = 2.0
-                return magnification
-            }
-            if (defense == TypeSelect.STEEL) {
-                magnification = 0.5
-                return magnification
-            }
-            if (defense == TypeSelect.FAIRLY) {
-                magnification = 0.0
-                return magnification
-            }
-        }
-        if (attack == TypeSelect.DARK) {
-            if (defense == TypeSelect.PSYCHIC || defense == TypeSelect.GHOST) {
-                magnification = 2.0
-                return magnification
-            }
-            if (defense ==TypeSelect.FIGHTING || defense == TypeSelect.DARK || defense == TypeSelect.FAIRLY) {
-                magnification = 0.5
-                return magnification
-            }
-        }
-        if (attack == TypeSelect.STEEL) {
-            if (defense == TypeSelect.ICE || defense == TypeSelect.ROCK || defense == TypeSelect.FAIRLY) {
-                magnification = 2.0
-                return magnification
-            }
-            if (defense == TypeSelect.FIRE || defense == TypeSelect.WATER || defense == TypeSelect.ELECTRIC || defense == TypeSelect.STEEL) {
-                magnification = 0.5
-                return magnification
-            }
-        }
-        if (attack == TypeSelect.FAIRLY) {
-            if (defense ==TypeSelect.FIGHTING || defense == TypeSelect.DARK || defense == TypeSelect.DRAGON) {
-                magnification = 2.0
-                return magnification
-            }
-            if (defense == TypeSelect.FIRE || defense == TypeSelect.POISON || defense == TypeSelect.STEEL) {
-                magnification = 0.5
-                return magnification
-            }
-        }
-        return magnification
+    fun typeCompatibility(attack: TypeSelect, defense: TypeSelect): Double = when (attack) {
+            NORMAL -> typeCompatibilityNormal(defense)
+            FIGHTING -> typeCompatibilityFighting(defense)
+            FLYING -> typeCompatibilityFlying(defense)
+            POISON -> typeCompatibilityPoison(defense)
+            GROUND -> typeCompatibilityGround(defense)
+            ROCK -> typeCompatibilityRock(defense)
+            BUG -> typeCompatibilityBug(defense)
+            GHOST -> typeCompatibilityGhost(defense)
+            STEEL -> typeCompatibilitySteel(defense)
+            FIRE -> typeCompatibilityFire(defense)
+            WATER -> typeCompatibilityWater(defense)
+            GRASS -> typeCompatibilityGrass(defense)
+            ELECTRIC -> typeCompatibilityElectric(defense)
+            PSYCHIC -> typeCompatibilityPsychic(defense)
+            ICE -> typeCompatibilityIce(defense)
+            DRAGON -> typeCompatibilityDragon(defense)
+            DARK -> typeCompatibilityDark(defense)
+            FAIRLY -> typeCompatibilityFairly(defense)
+    }
+
+    private fun typeCompatibilityFairly(defense: TypeSelect): Double = when (defense) {
+        FIGHTING, DARK, DRAGON -> 2.0
+        FIRE, POISON, STEEL -> 0.5
+        else -> 1.0
+    }
+
+    private fun typeCompatibilityDark(defense: TypeSelect): Double = when (defense) {
+        PSYCHIC, GHOST -> 2.0
+        FIGHTING, DARK, FAIRLY -> 0.5
+        else -> 1.0
+    }
+
+    private fun typeCompatibilityDragon(defense: TypeSelect): Double = when (defense) {
+        DRAGON -> 2.0
+        STEEL -> 0.5
+        FAIRLY -> 0.0
+        else -> 1.0
+    }
+
+    private fun typeCompatibilityIce(defense: TypeSelect): Double = when (defense) {
+        GRASS, GROUND, FLYING, DRAGON -> 2.0
+        FIRE, WATER, ICE, STEEL -> 0.5
+        else -> 0.0
+    }
+
+    private fun typeCompatibilityPsychic(defense: TypeSelect): Double = when (defense) {
+        FIGHTING, POISON -> 2.0
+        PSYCHIC, STEEL -> 0.5
+        DARK -> 0.0
+        else -> 1.0
+    }
+
+    private fun typeCompatibilityElectric(defense: TypeSelect): Double = when (defense) {
+        WATER, FLYING -> 2.0
+        ELECTRIC, GRASS, DRAGON -> 0.5
+        GROUND -> 0.0
+        else -> 1.0
+    }
+
+    private fun typeCompatibilityGrass(defense: TypeSelect): Double = when (defense) {
+        WATER, GROUND, ROCK -> 2.0
+        FIRE, GRASS, POISON, FLYING, BUG, DRAGON, STEEL -> 0.5
+        else -> 1.0
+    }
+
+    private fun typeCompatibilityWater(defense: TypeSelect): Double = when (defense) {
+        FIRE, GROUND, ROCK -> 2.0
+        WATER, GRASS, DRAGON -> 0.5
+        else -> 1.0
+    }
+
+    private fun typeCompatibilityFire(defense: TypeSelect): Double = when (defense) {
+        GRASS, ICE, BUG, STEEL -> 2.0
+        FIRE, WATER, ROCK, DRAGON -> 0.5
+        else -> 1.0
+    }
+
+    private fun typeCompatibilitySteel(defense: TypeSelect): Double = when (defense) {
+        ICE, ROCK, FAIRLY -> 2.0
+        FIRE, WATER, ELECTRIC, STEEL -> 0.5
+        else -> 1.0
+    }
+
+    private fun typeCompatibilityGhost(defense: TypeSelect): Double = when (defense) {
+        PSYCHIC, GHOST -> 2.0
+        DARK -> 0.5
+        NORMAL -> 0.0
+        else -> 1.0
+    }
+
+    private fun typeCompatibilityBug(defense: TypeSelect): Double = when (defense) {
+        GRASS, PSYCHIC, DARK -> 2.0
+        FIRE, FIGHTING, POISON, FLYING, GHOST, STEEL, FAIRLY -> 0.5
+        else -> 1.0
+    }
+
+    private fun typeCompatibilityRock(defense: TypeSelect): Double = when (defense) {
+        FIRE, FLYING, ICE, BUG -> 2.0
+        FIGHTING, GROUND, STEEL -> 0.5
+        else -> 1.0
+    }
+
+    private fun typeCompatibilityGround(defense: TypeSelect): Double = when (defense) {
+        FIRE, ELECTRIC, POISON, ROCK, STEEL -> 2.0
+        GRASS, BUG -> 0.5
+        FLYING -> 0.0
+        else -> 1.0
+    }
+
+    private fun typeCompatibilityPoison(defense: TypeSelect): Double = when (defense) {
+        GRASS, FAIRLY -> 2.0
+        POISON, GROUND, ROCK, GHOST -> 0.5
+        STEEL -> 0.0
+        else -> 1.0
+    }
+
+    private fun typeCompatibilityFlying(defense: TypeSelect): Double = when (defense) {
+        GRASS, FIGHTING, BUG -> 2.0
+        ELECTRIC, ROCK, STEEL -> 0.5
+        else -> 1.0
+    }
+
+    private fun typeCompatibilityFighting(defense: TypeSelect): Double = when (defense) {
+        NORMAL, ICE, ROCK, DARK, STEEL -> 2.0
+        POISON, FLYING, PSYCHIC, BUG, FAIRLY -> 0.5
+        else -> 1.0
+    }
+
+    private fun typeCompatibilityNormal(defense: TypeSelect): Double = when (defense) {
+        ROCK, STEEL -> 0.5
+        GHOST -> 0.0
+        else -> 1.0
     }
 }
