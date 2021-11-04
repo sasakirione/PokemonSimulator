@@ -11,6 +11,8 @@ class Field(private val field: FieldType) {
     /** 残りターン数 */
     var remainingTurnNumber: Int = 5
         private set
+    /** タイプによる倍率 */
+    private val typeBoostConst: Double = CalculationConst.ONE_POINT_THREE
 
     /**
      * 残りターン数を減らす
@@ -26,19 +28,15 @@ class Field(private val field: FieldType) {
 
     /**
      * 技のタイプごとにかかるフィールドによる倍率を返します
+     * @param type 技のタイプ
      * @return 技のダメージ倍率
      */
-    fun typeBoost(type: TypeSelect): Double = when {
-        field == FieldType.ELECTRIC_FIELD && type == TypeSelect.ELECTRIC
-            -> CalculationConst.ONE_POINT_THREE
-        field == FieldType.GRASS_FIELD && type == TypeSelect.GRASS
-            -> CalculationConst.ONE_POINT_THREE
-        field == FieldType.MIST_FIELD && type == TypeSelect.FAIRLY
-            -> CalculationConst.ONE_POINT_FIVE
-        field == FieldType.MIST_FIELD && type == TypeSelect.DRAGON
-            -> CalculationConst.HALF
-        field == FieldType.PSYCHO_FIELD && type == TypeSelect.PSYCHIC
-            -> CalculationConst.ONE_POINT_THREE
+    fun typeBoost(type: TypeSelect): Double = when(field to type) {
+        FieldType.ELECTRIC_FIELD to TypeSelect.ELECTRIC -> typeBoostConst
+        FieldType.GRASS_FIELD to TypeSelect.GRASS -> typeBoostConst
+        FieldType.MIST_FIELD to TypeSelect.FAIRLY -> typeBoostConst
+        FieldType.MIST_FIELD to TypeSelect.DRAGON -> CalculationConst.HALF
+        FieldType.PSYCHO_FIELD to TypeSelect.PSYCHIC -> typeBoostConst
         else -> CalculationConst.ONE
     }
 }
