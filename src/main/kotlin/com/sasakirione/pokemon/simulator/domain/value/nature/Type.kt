@@ -60,16 +60,19 @@ class Type(private val type: List<TypeSelect>) {
      * @param move 受ける技のインスタンス
      * @return 技の相性倍率
      */
-    fun getTypeCompatibility(move: Move): Double {
-        return when {
-            move.name == MoveConst.FREEZE_DRY && type.contains(TypeSelect.WATER)
-                -> normalTypeCompatibility(move.moveType) * 4
-            move.name == MoveConst.FLYING_PRESS
-                -> normalTypeCompatibility(move.moveType) * normalTypeCompatibility(TypeSelect.FLYING)
-            else -> normalTypeCompatibility(move.moveType)
-        }
+    fun getTypeCompatibility(move: Move): Double = when {
+        move.name == MoveConst.FREEZE_DRY && type.contains(TypeSelect.WATER)
+            -> normalTypeCompatibility(move.moveType) * 4
+        move.name == MoveConst.FLYING_PRESS
+            -> normalTypeCompatibility(TypeSelect.FIGHTING) * normalTypeCompatibility(TypeSelect.FLYING)
+        else -> normalTypeCompatibility(move.moveType)
     }
 
+    /**
+     * タイプ相性を単純に計算します
+     * @param moveType 受ける技のタイプ
+     * @return 技の相性倍率
+     */
     private fun normalTypeCompatibility(moveType: TypeSelect): Double = type.map{
             type -> PokemonTypeCompatibility.typeCompatibility(moveType, type)
         }.reduce { acc, d -> acc * d }

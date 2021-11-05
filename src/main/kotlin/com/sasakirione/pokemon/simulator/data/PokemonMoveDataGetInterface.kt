@@ -1,7 +1,8 @@
 package com.sasakirione.pokemon.simulator.data
 
-import com.sasakirione.pokemon.simulator.domain.value.move.MoveStatusType
+import com.sasakirione.pokemon.simulator.dto.MoveDTO
+
 
 interface PokemonMoveDataGetInterface {
-    fun getMove(name: String): List<Pair<MoveStatusType, Int>>
+    fun getMove(name: String): MoveDTO
 }
