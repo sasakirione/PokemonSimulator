@@ -1,5 +1,8 @@
 package com.sasakirione.pokemon.simulator.const
 
+/**
+ * 計算用の定数オブジェクト
+ */
 object CalculationConst {
     const val ONE_POINT_FIVE = 6144.0 / 4096.0
     const val TWO = 8192.0 / 4096.0

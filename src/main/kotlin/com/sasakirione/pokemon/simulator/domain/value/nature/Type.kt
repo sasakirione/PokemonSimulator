@@ -1,6 +1,8 @@
 package com.sasakirione.pokemon.simulator.domain.value.nature
 
+import com.sasakirione.pokemon.simulator.const.MoveConst
 import com.sasakirione.pokemon.simulator.data.PokemonTypeCompatibility
+import com.sasakirione.pokemon.simulator.domain.value.move.Move
 
 /**
  * タイプを担当するクラス
@@ -12,7 +14,7 @@ class Type(private val type: List<TypeSelect>) {
      * タイプを増やす <BR>
      * 「ハロウィン」や「もりののろい」などタイプを増やす技などでタイプを増やすときに使います
      * @param addType 追加するタイプ
-     * @return 現在のタイプに新しいタイプが追加されたタイプオブジェクト
+     * @return 現在のタイプに新しいタイプが追加されたインスタンス
      */
     private fun addType(addType: TypeSelect): Type {
         val addTypes = type.toMutableList()
@@ -22,13 +24,13 @@ class Type(private val type: List<TypeSelect>) {
 
     /**
      * ハロウィンのタイプ処理を行います
-     * @return ゴーストタイプを追加したタイプオブジェクト
+     * @return ゴーストタイプを追加したタイプインスタンス
      */
     fun typeHalloween(): Type = addType(TypeSelect.GHOST)
 
     /**
      * もりののろいのタイプ処理を行います
-     * @return くさタイプを追加したタイプオブジェクト
+     * @return くさタイプを追加したタイプインスタンス
      */
     fun typeMori(): Type = addType(TypeSelect.GRASS)
 
@@ -36,29 +38,39 @@ class Type(private val type: List<TypeSelect>) {
      * タイプを入力したタイプに変更します<BR>
      * リベロやへんげんじざいなどのタイプを変える特性、みずびたしなどの特定のタイプにタイプを変更する技で使います
      * @param changeType 変化させるタイプ
-     * @return 変化させるタイプのタイプオブジェクト
+     * @return 変化させるタイプのタイプインスタンス
      */
     private fun typeChange(changeType: TypeSelect): Type = Type(listOf(changeType))
 
     /**
      * みずびたしのタイプ処理を行います
-     * @return みず単タイプのタイプオブジェクト
+     * @return みず単タイプのタイプインスタンス
      */
     fun typeSoak(): Type = typeChange(TypeSelect.WATER)
 
     /**
      * リベロやへんげんじざいのタイプ処理を行います
-     * @param moveType 出した技のタイプ
-     * @return 出した技のタイプのタイプオブジェクト
+     * @param move 出した技のインスタンス
+     * @return 出した技のタイプのタイプインスタンス
      */
-    fun typeLibero(moveType: TypeSelect): Type = typeChange(moveType)
+    fun typeLibero(move: Move): Type = typeChange(move.moveType)
 
     /**
      * タイプ相性を計算します
-     * @param moveType 受ける技のタイプ
+     * @param move 受ける技のインスタンス
      * @return 技の相性倍率
      */
-    fun getTypeCompatibility(moveType: TypeSelect): Double = type.map {
+    fun getTypeCompatibility(move: Move): Double {
+        return when {
+            move.name == MoveConst.FREEZE_DRY && type.contains(TypeSelect.WATER)
+                -> normalTypeCompatibility(move.moveType) * 4
+            move.name == MoveConst.FLYING_PRESS
+                -> normalTypeCompatibility(move.moveType) * normalTypeCompatibility(TypeSelect.FLYING)
+            else -> normalTypeCompatibility(move.moveType)
+        }
+    }
+
+    private fun normalTypeCompatibility(moveType: TypeSelect): Double = type.map{
             type -> PokemonTypeCompatibility.typeCompatibility(moveType, type)
         }.reduce { acc, d -> acc * d }
 }

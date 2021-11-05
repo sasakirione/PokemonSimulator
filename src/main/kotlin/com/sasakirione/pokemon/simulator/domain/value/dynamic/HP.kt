@@ -3,6 +3,10 @@ package com.sasakirione.pokemon.simulator.domain.value.dynamic
 import kotlin.math.floor
 import kotlin.math.max
 
+/**
+ * HPを担当するクラス
+ * @param maxHP HPの最大値
+ */
 class HP(maxHP: Int) {
     /** 現在のHP */
     var currentHP: Int = maxHP
