@@ -11,11 +11,18 @@ package com.sasakirione.pokemon.simulator.domain.value.status
  * NONE: 選択なし
  */
 enum class StatusType {
+    /** HP */
     H,
+    /** 攻撃 */
     A,
+    /** 防御 */
     B,
+    /** 特攻 */
     C,
+    /** 特防 */
     D,
+    /** 素早さ */
     S,
+    /** 選択なし */
     NONE
 }

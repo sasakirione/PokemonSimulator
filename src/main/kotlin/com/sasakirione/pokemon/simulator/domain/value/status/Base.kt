@@ -1,5 +1,9 @@
 package com.sasakirione.pokemon.simulator.domain.value.status
 
+/**
+ * 種族値を担当するクラス
+ * @param inBase 種族値の配列
+ */
 class Base(inBase: Array<Int>) {
     /** 種族値 */
     private val base: List<Pair<StatusType, Int>>

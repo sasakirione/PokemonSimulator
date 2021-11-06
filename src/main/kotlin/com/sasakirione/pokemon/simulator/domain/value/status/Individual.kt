@@ -4,6 +4,7 @@ import java.lang.IllegalArgumentException
 
 /**
  * 個体値を担当するクラス
+ * @param inIndividual 個体値の配列
  */
 class Individual(inIndividual: Array<Int>) {
     /** 個体値 */
@@ -67,7 +68,7 @@ class Individual(inIndividual: Array<Int>) {
     }
 
     /**
-     * 個体値用のBuilder
+     * 個体値用のBuilder(Vじゃない値だけ入力する、原則としてこちらを使う)
      */
     class IndividualBuilder() {
         private var h = 31

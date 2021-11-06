@@ -1,5 +1,9 @@
 package com.sasakirione.pokemon.simulator.domain.value.nature
 
-class Ability(abilityName: String) {
+/**
+ * 特性を担当するクラス
+ * @param abilityName 特性の名前
+ */
+class Ability(private val abilityName: String) {
 
 }

@@ -2,8 +2,7 @@ package com.sasakirione.pokemon.simulator.domain.value.status
 
 /**
  * 努力値を担当するクラス
- *
- * Int配列
+ * @param inEffort 努力値の配列
  */
 class Effort(inEffort: Array<Int>) {
     /** 努力値 */

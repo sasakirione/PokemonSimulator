@@ -38,9 +38,11 @@ class Status(individual: Individual, effort: Effort, base: Base, natureCorrectio
         realSourceWork: List<Pair<StatusType, Int>>,
         natureCorrection: List<Pair<StatusCorrection, StatusType>>
     ): List<Pair<StatusType, Int>> {
+        // まじめ系の性格の場合はそのまま返す
         if (natureCorrection[0].second == StatusType.NONE) {
             return realSourceWork
         }
+
         val plus = natureCorrection.first { pair -> pair.first == StatusCorrection.PLUS }
         val minus = natureCorrection.first { pair -> pair.first == StatusCorrection.MINUS }
         return realSourceWork.map {

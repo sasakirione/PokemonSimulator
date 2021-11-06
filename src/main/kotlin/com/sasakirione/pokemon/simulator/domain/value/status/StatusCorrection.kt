@@ -6,6 +6,8 @@ package com.sasakirione.pokemon.simulator.domain.value.status
  * MINUS: 下降補正
  */
 enum class StatusCorrection {
+    /** 上昇補正 */
     PLUS,
+    /** 下降補正 */
     MINUS
 }

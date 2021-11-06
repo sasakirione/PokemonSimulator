@@ -8,8 +8,12 @@ package com.sasakirione.pokemon.simulator.domain.value.field
  * PSYCHO_FIELD：サイコフィールド
  */
 enum class FieldType {
+    /** エレキフィールド */
     ELECTRIC_FIELD,
+    /** グラスフィールド */
     GRASS_FIELD,
+    /** ミストフィールド */
     MIST_FIELD,
+    /** サイコフィールド */
     PSYCHO_FIELD
 }
