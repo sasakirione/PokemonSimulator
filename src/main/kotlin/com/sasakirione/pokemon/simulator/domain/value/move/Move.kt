@@ -14,13 +14,13 @@ class Move(val name: String, val pokemon: Pokemon) {
     /** 技のタイプ */
     val moveType: TypeSelect
     /** 技の威力 */
-    val movePower: Int
+    private val movePower: Int
     /** 技の種類 */
     val moveClass: MoveClass
     /** 技の優先度 */
     val priority: Int
     /** 技の命中率 */
-    val accuracy: Int
+    private val accuracy: Int
     /** 技の連続仕様 */
     val moveCombo: MoveCombo
     /** 技の急所ランク */

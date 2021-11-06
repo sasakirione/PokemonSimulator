@@ -1,7 +1,9 @@
 import com.sasakirione.pokemon.simulator.const.CalculationConst
+import com.sasakirione.pokemon.simulator.domain.entity.Pokemon
 import com.sasakirione.pokemon.simulator.domain.value.dynamic.HP
 import com.sasakirione.pokemon.simulator.domain.value.field.Field
 import com.sasakirione.pokemon.simulator.domain.value.field.FieldType
+import com.sasakirione.pokemon.simulator.domain.value.move.Move
 import com.sasakirione.pokemon.simulator.domain.value.nature.Type
 import com.sasakirione.pokemon.simulator.domain.value.nature.TypeSelect
 import com.sasakirione.pokemon.simulator.domain.value.status.Effort
@@ -51,10 +53,17 @@ class PokemonTest {
         assert(field.typeBoost(TypeSelect.ELECTRIC) == CalculationConst.ONE_POINT_THREE)
     }
 
-    @Test
+/*    @Test
     @DisplayName("タイプクラス")
     fun test005() {
         val types = Type(listOf(TypeSelect.WATER, TypeSelect.GROUND))
         assert(4.0 == types.getTypeCompatibility(TypeSelect.GRASS))
+    }*/
+
+    @Test
+    @DisplayName("技を担当するクラス")
+    fun test006() {
+        val move = Move("すいりゅうれんだ", Pokemon())
+        assert(move.moveType == TypeSelect.WATER)
     }
 }
