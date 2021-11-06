@@ -1,11 +1,12 @@
 package com.sasakirione.pokemon.simulator.data
 
 import com.sasakirione.pokemon.simulator.domain.value.move.MoveClass
+import com.sasakirione.pokemon.simulator.domain.value.move.MoveCombo
+import com.sasakirione.pokemon.simulator.domain.value.move.MultipleMove
+import com.sasakirione.pokemon.simulator.domain.value.move.VitalRank
 import com.sasakirione.pokemon.simulator.domain.value.nature.TypeSelect
 import com.sasakirione.pokemon.simulator.dto.MoveDTO
-import java.io.BufferedReader
 import java.io.File
-import java.io.FileReader
 import java.nio.charset.Charset
 import java.nio.file.Files
 import java.nio.file.Paths
@@ -17,13 +18,70 @@ class PokemonMoveDataGet: PokemonMoveDataGetInterface {
 
     override fun getMove(name: String): MoveDTO{
         val res = getMoveData(name)
-        val outDTO= MoveDTO(
+        val outDTO = MoveDTO(
             moveType = setMoveType(res),
             movePower = setMovePower(res),
             moveClass = setMoveClass(res)
         )
+        setEtc(outDTO, res)
         return outDTO
     }
+
+    private fun setEtc(outDTO: MoveDTO, res: Array<String>) {
+        outDTO.accuracy = res[5].toInt()
+        outDTO.priority = res[6].toInt()
+        setMoveCombo(outDTO, res)
+        setVitalRank(outDTO, res)
+        setMultipleMove(outDTO, res)
+        // outDTO.contact
+    }
+
+    private fun setMultipleMove(outDTO: MoveDTO, res: Array<String>) {
+        if (res.size < 12) {
+            return
+        } else if (res[11] == "1"){
+            return
+        } else {
+            outDTO.multipleMove = when (res[11]) {
+                "2" -> MultipleMove.RECOIL
+                "3" -> MultipleMove.CHARGE
+                "4" -> MultipleMove.THRASH
+                else -> throw IllegalArgumentException("技のターン仕様の不正値です")
+            }
+        }
+    }
+
+    private fun setVitalRank(outDTO: MoveDTO, res: Array<String>) {
+        if (res.size < 10) {
+            return
+        } else if (res[9] == "1"){
+            return
+        } else {
+            outDTO.vitalRank = when (res[9]) {
+                "1" -> VitalRank.ONE
+                "2" -> VitalRank.TWO
+                "3" -> VitalRank.THREE
+                else -> throw IllegalArgumentException("急所ランクの不正値です")
+            }
+        }
+    }
+
+    private fun setMoveCombo(outDTO: MoveDTO, res: Array<String>) {
+        if (res.size < 11) {
+            return
+        } else if (res[10] == "1"){
+            return
+        } else {
+            outDTO.moveCombo = when (res[10]) {
+                "3" -> MoveCombo.FIXED_THREE
+                "2" -> MoveCombo.FIXED_TWO
+                "30" -> MoveCombo.MAX_THREE
+                "50" -> MoveCombo.MAX_FIVE
+                else -> throw IllegalArgumentException("技の連続仕様の不正値です")
+            }
+        }
+    }
+
 
     private fun setMoveClass(res: Array<String>): MoveClass = when {
         res[8] == "2" -> MoveClass.PHYSICS

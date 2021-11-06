@@ -10,10 +10,10 @@ data class MoveDTO(
     val moveType: TypeSelect,
     val movePower: Int,
     val moveClass: MoveClass,
-    val priority: Int = 0,
-    val accuracy: Int = 100,
-    val moveCombo: MoveCombo = MoveCombo.NORMAL,
-    val vitalRank: VitalRank = VitalRank.ZERO,
-    val multipleMove: MultipleMove = MultipleMove.NORMAL,
-    val contact: Boolean = true
+    var priority: Int = 0,
+    var accuracy: Int = 100,
+    var moveCombo: MoveCombo = MoveCombo.NORMAL,
+    var vitalRank: VitalRank = VitalRank.ZERO,
+    var multipleMove: MultipleMove = MultipleMove.NORMAL,
+    var contact: Boolean = true
 )
