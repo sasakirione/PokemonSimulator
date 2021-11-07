@@ -73,4 +73,6 @@ class Status(individual: Individual, effort: Effort, base: Base, natureCorrectio
     private fun realCalculationEtc(base: Int, individual: Int, effort: Int): Int {
         return floor((base * 2.0 + individual + floor(effort / 4.0)) * (50.0 / 100.0) + 5).toInt()
     }
+
+    fun getA(): Int = real.first { pair -> pair.first == StatusType.A }.second
 }

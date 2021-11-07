@@ -60,10 +60,10 @@ class PokemonTest {
         assert(4.0 == types.getTypeCompatibility(TypeSelect.GRASS))
     }*/
 
-    @Test
+/*    @Test
     @DisplayName("技を担当するクラス")
     fun test006() {
         val move = Move("すいりゅうれんだ", Pokemon())
         assert(move.moveType == TypeSelect.WATER)
-    }
+    }*/
 }

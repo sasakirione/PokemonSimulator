@@ -15,5 +15,7 @@ enum class FieldType {
     /** ミストフィールド */
     MIST_FIELD,
     /** サイコフィールド */
-    PSYCHO_FIELD
+    PSYCHO_FIELD,
+    /** フィールドなし */
+    NONE
 }

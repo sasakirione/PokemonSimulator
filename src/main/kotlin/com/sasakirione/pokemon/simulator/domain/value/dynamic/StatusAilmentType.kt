@@ -24,5 +24,7 @@ enum class StatusAilmentType {
     /** ねむり */
     ASLEEP,
     /** こんらん */
-    CONFUSION
+    CONFUSION,
+    /** 状態異常なし*/
+    NONE
 }
