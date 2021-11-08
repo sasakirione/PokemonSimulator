@@ -7,7 +7,7 @@ import kotlin.math.max
  * HPを担当するクラス
  * @param maxHP HPの最大値
  */
-class HP(maxHP: Int) {
+class HP(private val maxHP: Int) {
     /** 現在のHP */
     var currentHP: Int = maxHP
         private set
@@ -27,4 +27,10 @@ class HP(maxHP: Int) {
         val amount = floor(currentHP / 2.0).toInt()
         decreaseHP(amount)
     }
+
+    /**
+     * HPが半分以下になってるか
+     * @return HPが半分以下になっていた場合にTrueを返す
+     */
+    fun isHPHalf(): Boolean = (currentHP < (maxHP / 2))
 }
