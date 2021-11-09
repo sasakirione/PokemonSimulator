@@ -9,19 +9,23 @@ import com.sasakirione.pokemon.simulator.domain.value.nature.TypeSelect
  *
  * @param maxHP 最大HP
  * @param abilityName 特性の名前
+ * @param goodName 道具名
  */
-class Dynamic(maxHP: Int, abilityName: String) {
+class Dynamic(maxHP: Int, abilityName: String, goodName: String) {
     /** HP */
     private val hp: HP
     /** 状態異常 */
     private var statusAilment: StatusAilment
     /** 特性 */
     private var ability: Ability
+    /** 道具 */
+    private var good: Good
 
     init {
         hp = HP(maxHP)
         statusAilment = StatusAilment(StatusAilmentType.NONE)
         ability = Ability(abilityName)
+        good = Good(goodName)
     }
 
     /**
