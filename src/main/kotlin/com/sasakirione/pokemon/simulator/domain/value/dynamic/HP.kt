@@ -29,8 +29,8 @@ class HP(private val maxHP: Int) {
     }
 
     /**
-     * HPが半分以下になってるか
-     * @return HPが半分以下になっていた場合にTrueを返す
+     * HPが1/3以下になってるか
+     * @return HPが1/3以下になっていた場合にTrueを返す
      */
-    fun isHPHalf(): Boolean = (currentHP < (maxHP / 2))
+    fun isHPOneThird(): Boolean = (currentHP < (maxHP / 3))
 }

@@ -39,4 +39,5 @@ class Field(private val field: FieldType) {
         FieldType.PSYCHO_FIELD to TypeSelect.PSYCHIC -> typeBoostConst
         else -> CalculationConst.ONE
     }
+
 }

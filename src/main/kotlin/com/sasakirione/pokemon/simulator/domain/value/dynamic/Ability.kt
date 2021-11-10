@@ -23,21 +23,21 @@ class Ability(private val abilityName: String) {
      * 特性による技のダメージの倍率を返します
      *
      * @param moveType 技のタイプ
-     * @param hpHalf HPか半分以下の場合はtrue
+     * @param hpOneThird HPか半分以下の場合はtrue
      * @return 技のダメージの倍率
      */
-    fun getMoveDamageCorrect(moveType: TypeSelect, hpHalf: Boolean): Double = when {
+    fun getMoveDamageCorrect(moveType: TypeSelect, hpOneThird: Boolean): Double = when {
         (abilityName == AbilityConst.TRANSISTOR) && (moveType == TypeSelect.ELECTRIC)
             -> 1.5
         (abilityName == AbilityConst.DRAGONS_MAW) && (moveType == TypeSelect.DRAGON)
             -> 1.5
-        (abilityName == AbilityConst.BLAZE) && (moveType == TypeSelect.FIRE) && hpHalf
+        (abilityName == AbilityConst.BLAZE) && (moveType == TypeSelect.FIRE) && hpOneThird
             -> 1.5
-        (abilityName == AbilityConst.SWARM) && (moveType == TypeSelect.BUG) && hpHalf
+        (abilityName == AbilityConst.SWARM) && (moveType == TypeSelect.BUG) && hpOneThird
             -> 1.5
-        (abilityName == AbilityConst.TORRENT) && (moveType == TypeSelect.WATER) && hpHalf
+        (abilityName == AbilityConst.TORRENT) && (moveType == TypeSelect.WATER) && hpOneThird
             -> 1.5
-        (abilityName == AbilityConst.OVER_GROW) && (moveType == TypeSelect.GRASS) && hpHalf
+        (abilityName == AbilityConst.OVER_GROW) && (moveType == TypeSelect.GRASS) && hpOneThird
             -> 1.5
         else -> 1.0
     }

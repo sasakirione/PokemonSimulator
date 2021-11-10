@@ -33,7 +33,8 @@ class Dynamic(maxHP: Int, abilityName: String, goodName: String) {
      *
      * @return 攻撃にかかる補正値倍率
      */
-    fun getAttackCorrection(): Double = ability.getAttackCorrection() * statusAilment.getAttackCorrection()
+    fun getAttackCorrection(): Double =
+        ability.getAttackCorrection() * statusAilment.getAttackCorrection() * good.getAttackCorrection()
 
     /**
      * 技のダメージにかかる補正を返します
@@ -41,5 +42,6 @@ class Dynamic(maxHP: Int, abilityName: String, goodName: String) {
      * @param moveType 技のタイプ
      * @return 技のダメージの補正倍率値
      */
-    fun getMoveDamageCorrection(moveType: TypeSelect): Double = ability.getMoveDamageCorrect(moveType, hp.isHPHalf())
+    fun getMoveDamageCorrection(moveType: TypeSelect): Double =
+        ability.getMoveDamageCorrect(moveType, hp.isHPOneThird()) * good.getMoveDamageCorrect(moveType)
 }
