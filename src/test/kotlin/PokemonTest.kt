@@ -1,15 +1,11 @@
 import com.sasakirione.pokemon.simulator.const.CalculationConst
-import com.sasakirione.pokemon.simulator.domain.entity.Pokemon
 import com.sasakirione.pokemon.simulator.domain.value.dynamic.HP
 import com.sasakirione.pokemon.simulator.domain.value.field.Field
 import com.sasakirione.pokemon.simulator.domain.value.field.FieldType
-import com.sasakirione.pokemon.simulator.domain.value.move.Move
-import com.sasakirione.pokemon.simulator.domain.value.nature.Type
 import com.sasakirione.pokemon.simulator.domain.value.nature.TypeSelect
 import com.sasakirione.pokemon.simulator.domain.value.status.Effort
 import com.sasakirione.pokemon.simulator.domain.value.status.Individual
 import org.junit.jupiter.api.DisplayName
-import kotlin.test.Asserter
 import kotlin.test.Test
 import kotlin.test.assertFails
 
@@ -50,7 +46,7 @@ class PokemonTest {
         field.forwardTurn()
         assert(!field.forwardTurn())
         assert(field.forwardTurn())
-        assert(field.typeBoost(TypeSelect.ELECTRIC) == CalculationConst.ONE_POINT_THREE)
+        assert(field.damageCorrectionFromMoveType(TypeSelect.ELECTRIC) == CalculationConst.ONE_POINT_THREE)
     }
 
 /*    @Test

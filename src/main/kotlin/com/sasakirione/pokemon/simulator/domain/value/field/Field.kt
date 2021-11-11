@@ -31,7 +31,7 @@ class Field(private val field: FieldType) {
      * @param type 技のタイプ
      * @return 技のダメージ倍率
      */
-    fun typeBoost(type: TypeSelect): Double = when(field to type) {
+    fun damageCorrectionFromMoveType(type: TypeSelect): Double = when(field to type) {
         FieldType.ELECTRIC_FIELD to TypeSelect.ELECTRIC -> typeBoostConst
         FieldType.GRASS_FIELD to TypeSelect.GRASS -> typeBoostConst
         FieldType.MIST_FIELD to TypeSelect.FAIRLY -> typeBoostConst
