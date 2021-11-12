@@ -20,9 +20,9 @@ class Weather(private val weather: WeatherType) {
         weather == WeatherType.NIHONBARE && moveType == TypeSelect.WATER
             -> CalculationConst.HALF
         weather == WeatherType.RAIN && moveType == TypeSelect.WATER
-        -> CalculationConst.ONE_POINT_FIVE
+            -> CalculationConst.ONE_POINT_FIVE
         weather == WeatherType.RAIN && moveType == TypeSelect.FIRE
-        -> CalculationConst.HALF
+            -> CalculationConst.HALF
         else -> 1.0
     }
 }

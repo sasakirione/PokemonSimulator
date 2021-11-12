@@ -6,7 +6,7 @@ package com.sasakirione.pokemon.simulator.const
  */
 object GoodConst {
     /** 道具なし */
-    const val none = "なし"
+    const val NONE = "なし"
     /** いのちのたま */
     const val LIFE_ORB = "いのちのたま"
     /** こだわりスカーフ */

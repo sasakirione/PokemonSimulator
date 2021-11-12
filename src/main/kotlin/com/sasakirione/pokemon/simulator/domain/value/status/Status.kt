@@ -74,5 +74,24 @@ class Status(individual: Individual, effort: Effort, base: Base, natureCorrectio
         return floor((base * 2.0 + individual + floor(effort / 4.0)) * (50.0 / 100.0) + 5).toInt()
     }
 
+    /**
+     * HP実数値を取得する
+     *
+     * @return HP実数値
+     */
+    fun getH(): Int = real.first { pair -> pair.first == StatusType.H }.second
+
+    /**
+     * 攻撃実数値を取得する
+     *
+     * @return 攻撃実数値
+     */
     fun getA(): Int = real.first { pair -> pair.first == StatusType.A }.second
+
+    /**
+     * 防御実数値を取得する
+     *
+     * @return 防御実数値
+     */
+    fun getB(): Int = real.first {pair -> pair.first == StatusType.B }.second
 }
