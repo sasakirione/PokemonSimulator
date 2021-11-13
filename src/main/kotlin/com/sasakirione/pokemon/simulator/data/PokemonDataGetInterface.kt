@@ -6,5 +6,5 @@ import com.sasakirione.pokemon.simulator.domain.value.status.Base
 
 
 interface PokemonDataGetInterface {
-    fun dataGet(pokemonName: String, abilitySelect: Int): Triple<Base, Type, Ability>
+    fun getPokemon(pokemonName: String, abilitySelect: Int): Triple<Base, Type, Ability>
 }

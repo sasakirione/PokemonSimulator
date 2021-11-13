@@ -23,7 +23,14 @@ import kotlin.math.roundToInt
  * @param dynamic 状況に関するインスタンス
  * @param natureAll 性格やタイプに関するインスタンス
  */
-class Pokemon(private val status: Status, private val dynamic: Dynamic, private val natureAll: NatureAll) {
+class Pokemon(private val status: Status, private val dynamic: Dynamic, private val natureAll: NatureAll, private val name: String) {
+    /**
+     * ポケモンの名前を取得する
+     *
+     * @return ポケモンの名前
+     */
+    fun getName(): String = name
+
     /**
      * ポケモンの攻撃実数値を取得する
      *
@@ -59,17 +66,20 @@ class Pokemon(private val status: Status, private val dynamic: Dynamic, private 
         var nature: Nature = Nature("まじめ")
         /** タイプ */
         private lateinit var type: Type
+        /** ポケモンの名前 */
+        private lateinit var pokemonName: String
 
         /**
          * ポケモンを検索します
          *
          * @param pokemonName ポケモンの名前
-         * @param abilitySelect 性格の選択
+         * @param abilitySelect 性格の選択(1-3)
          * @return Builderインスタンス
          */
         fun setPokemon(pokemonName: String, abilitySelect: Int): PokemonSmartBuilder {
             val pokemonGet: PokemonDataGetInterface = PokemonDataGet()
-            val (base, type, ability) = pokemonGet.dataGet(pokemonName, abilitySelect)
+            this.pokemonName = pokemonName
+            val (base, type, ability) = pokemonGet.getPokemon(pokemonName, abilitySelect)
             this.base = base
             this.ability = ability
             this.type = type
@@ -129,7 +139,7 @@ class Pokemon(private val status: Status, private val dynamic: Dynamic, private 
             val status = Status(individual, effort, base, nature.getNatureCorrection())
             val nature = NatureAll(nature, type)
             val dynamic = Dynamic(status.getH(), ability, good)
-            return Pokemon(status, dynamic, nature)
+            return Pokemon(status, dynamic, nature, pokemonName)
         }
     }
 }

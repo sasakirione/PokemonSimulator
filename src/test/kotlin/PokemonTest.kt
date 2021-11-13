@@ -1,4 +1,5 @@
 import com.sasakirione.pokemon.simulator.const.CalculationConst
+import com.sasakirione.pokemon.simulator.domain.entity.Pokemon
 import com.sasakirione.pokemon.simulator.domain.value.dynamic.HP
 import com.sasakirione.pokemon.simulator.domain.value.field.Field
 import com.sasakirione.pokemon.simulator.domain.value.field.FieldType
@@ -62,4 +63,11 @@ class PokemonTest {
         val move = Move("すいりゅうれんだ", Pokemon())
         assert(move.moveType == TypeSelect.WATER)
     }*/
+
+    @Test
+    @DisplayName("ポケモンを担当するクラス")
+    fun test007() {
+        val pokemon = Pokemon.PokemonSmartBuilder().setPokemon("カプ・テテフ", 1).setEffort(arrayOf(0,0,0,252,0,252)).setNature("おくびょう").build()
+        assert("カプ・テテフ" == pokemon.getName())
+    }
 }
