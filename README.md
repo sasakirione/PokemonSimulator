@@ -12,4 +12,5 @@ Pokemon Battle Simulator in Kotlin
  - Twitter:@sasakirione2
 
 # License
- PokemonSimulator is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+ PokemonSimulator is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).  
+ Pokemon is Copyrighted work of The Pokémon Company.
