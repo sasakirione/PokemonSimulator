@@ -7,12 +7,16 @@ package com.sasakirione.pokemon.simulator.domain.value.move
 enum class MoveClass {
     /** 物理技 */
     PHYSICS,
+
     /** 特殊技 */
     SPECIAL,
+
     /** 自分にかかる変化技 */
     SELF_CHANGE,
+
     /** 相手にかかる変化技 */
     ENEMY_CHANGE,
+
     /** 場にかかる変化技 */
     STADIUM_CHANGE
 }

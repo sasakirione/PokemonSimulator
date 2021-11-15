@@ -11,12 +11,14 @@ class Individual(inIndividual: Array<Int>) {
     private val individual: List<Pair<StatusType, Int>>
 
     init {
-        individual = listOf(StatusType.H to inIndividual[0],
-                            StatusType.A to inIndividual[1],
-                            StatusType.B to inIndividual[2],
-                            StatusType.C to inIndividual[3],
-                            StatusType.D to inIndividual[4],
-                            StatusType.S to inIndividual[5])
+        individual = listOf(
+            StatusType.H to inIndividual[0],
+            StatusType.A to inIndividual[1],
+            StatusType.B to inIndividual[2],
+            StatusType.C to inIndividual[3],
+            StatusType.D to inIndividual[4],
+            StatusType.S to inIndividual[5]
+        )
     }
 
     /**

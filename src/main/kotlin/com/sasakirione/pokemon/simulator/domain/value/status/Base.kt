@@ -15,7 +15,8 @@ class Base(inBase: Array<Int>) {
             StatusType.B to inBase[2],
             StatusType.C to inBase[3],
             StatusType.D to inBase[4],
-            StatusType.S to inBase[5])
+            StatusType.S to inBase[5]
+        )
     }
 
     /**

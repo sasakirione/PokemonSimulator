@@ -63,10 +63,10 @@ class Type(private val type: List<TypeSelect>) {
     fun getTypeCompatibility(move: Move): Double = when {
         // フリーズドライ時の処理：水への補正が半減から倍になるので最終結果から4倍する
         move.name == MoveConst.FREEZE_DRY && type.contains(TypeSelect.WATER)
-            -> normalTypeCompatibility(move.moveType) * 4
+        -> normalTypeCompatibility(move.moveType) * 4
         // フライングプレス時の処理：格闘と飛行の両方の倍率を掛け合わせる
         move.name == MoveConst.FLYING_PRESS
-            -> normalTypeCompatibility(TypeSelect.FIGHTING) * normalTypeCompatibility(TypeSelect.FLYING)
+        -> normalTypeCompatibility(TypeSelect.FIGHTING) * normalTypeCompatibility(TypeSelect.FLYING)
         // 通常の技の処理
         else -> normalTypeCompatibility(move.moveType)
     }
@@ -76,7 +76,7 @@ class Type(private val type: List<TypeSelect>) {
      * @param moveType 受ける技のタイプ
      * @return 技の相性倍率
      */
-    private fun normalTypeCompatibility(moveType: TypeSelect): Double = type.map{
-            type -> PokemonTypeCompatibility.typeCompatibility(moveType, type)
-        }.reduce { acc, d -> acc * d }
+    private fun normalTypeCompatibility(moveType: TypeSelect): Double = type.map { type ->
+        PokemonTypeCompatibility.typeCompatibility(moveType, type)
+    }.reduce { acc, d -> acc * d }
 }

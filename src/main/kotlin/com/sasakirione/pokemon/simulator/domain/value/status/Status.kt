@@ -9,9 +9,15 @@ import kotlin.math.floor
  * @param base 種族値
  * @param natureCorrection 性格補正
  */
-class Status(individual: Individual, effort: Effort, base: Base, natureCorrection: List<Pair<StatusCorrection, StatusType>>) {
+class Status(
+    individual: Individual,
+    effort: Effort,
+    base: Base,
+    natureCorrection: List<Pair<StatusCorrection, StatusType>>
+) {
     /** 補正なし実数値 */
     private val realSource: List<Pair<StatusType, Int>>
+
     /** 実数値 */
     private var real: MutableList<Pair<StatusType, Int>>
 
@@ -46,7 +52,7 @@ class Status(individual: Individual, effort: Effort, base: Base, natureCorrectio
         val plus = natureCorrection.first { pair -> pair.first == StatusCorrection.PLUS }
         val minus = natureCorrection.first { pair -> pair.first == StatusCorrection.MINUS }
         return realSourceWork.map {
-            when(it.first) {
+            when (it.first) {
                 plus.second -> it.first to floor(it.second * 1.1).toInt()
                 minus.second -> it.first to floor(it.second * 0.9).toInt()
                 else -> it.first to it.second
@@ -93,5 +99,5 @@ class Status(individual: Individual, effort: Effort, base: Base, natureCorrectio
      *
      * @return 防御実数値
      */
-    fun getB(): Int = real.first {pair -> pair.first == StatusType.B }.second
+    fun getB(): Int = real.first { pair -> pair.first == StatusType.B }.second
 }

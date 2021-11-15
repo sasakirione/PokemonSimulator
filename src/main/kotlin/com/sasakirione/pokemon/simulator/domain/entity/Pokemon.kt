@@ -23,7 +23,12 @@ import kotlin.math.roundToInt
  * @param dynamic 状況に関するインスタンス
  * @param natureAll 性格やタイプに関するインスタンス
  */
-class Pokemon(private val status: Status, private val dynamic: Dynamic, private val natureAll: NatureAll, private val name: String) {
+class Pokemon(
+    private val status: Status,
+    private val dynamic: Dynamic,
+    private val natureAll: NatureAll,
+    private val name: String
+) {
     /**
      * ポケモンの名前を取得する
      *
@@ -54,18 +59,25 @@ class Pokemon(private val status: Status, private val dynamic: Dynamic, private 
     class PokemonSmartBuilder {
         /** 個体値(初期値は6V)*/
         private var individual: Individual = Individual.IndividualBuilder().build()
+
         /** 努力値(初期値は無振り) */
         private var effort: Effort = Effort(arrayOf(0, 0, 0, 0, 0, 0))
+
         /** 種族値 */
         private lateinit var base: Base
+
         /** 特性 */
         private lateinit var ability: Ability
+
         /** 道具(初期値は道具なし) */
         private var good: Good = Good(GoodConst.NONE)
+
         /** 性格(初期値はまじめ) */
         var nature: Nature = Nature("まじめ")
+
         /** タイプ */
         private lateinit var type: Type
+
         /** ポケモンの名前 */
         private lateinit var pokemonName: String
 

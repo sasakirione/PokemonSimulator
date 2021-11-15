@@ -17,11 +17,12 @@ import java.util.*
  *
  * @constructor プロパティファイルの読み込み
  */
-class PokemonDataGet: PokemonDataGetInterface {
+class PokemonDataGet : PokemonDataGetInterface {
     /**
      * プロパティファイルの読み込み
      */
-    private val properties = Properties().apply{ File("src/main/resources/path.properties").inputStream().use(this::load)}
+    private val properties =
+        Properties().apply { File("src/main/resources/path.properties").inputStream().use(this::load) }
 
     /**
      * ポケモンクラス生成に必要なデータを返します
@@ -34,7 +35,7 @@ class PokemonDataGet: PokemonDataGetInterface {
         val res = getPokemonData(pokemonName)
         val base = getBase(res)
         val type = getType(res)
-        val ability = Ability(res[abilitySelect+3])
+        val ability = Ability(res[abilitySelect + 3])
         return Triple(base, type, ability)
     }
 

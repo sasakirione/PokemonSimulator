@@ -13,18 +13,25 @@ package com.sasakirione.pokemon.simulator.domain.value.dynamic
 enum class StatusAilmentType {
     /** まひ */
     PARALYSIS,
+
     /** こおり */
     FROZEN,
+
     /** やけど */
     BURNED,
+
     /** どく */
     POISONED,
+
     /** もうどく*/
     BAD_POISONED,
+
     /** ねむり */
     ASLEEP,
+
     /** こんらん */
     CONFUSION,
+
     /** 状態異常なし*/
     NONE
 }

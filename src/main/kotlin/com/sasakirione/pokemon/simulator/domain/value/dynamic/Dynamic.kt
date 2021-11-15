@@ -14,10 +14,13 @@ import com.sasakirione.pokemon.simulator.domain.value.nature.TypeSelect
 class Dynamic(maxHP: Int, ability: Ability, good: Good) {
     /** HP */
     private val hp: HP
+
     /** 状態異常 */
     private var statusAilment: StatusAilment
+
     /** 特性 */
     private var ability: Ability
+
     /** 道具 */
     private var good: Good
 

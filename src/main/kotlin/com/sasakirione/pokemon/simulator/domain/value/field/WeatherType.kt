@@ -11,12 +11,16 @@ package com.sasakirione.pokemon.simulator.domain.value.field
 enum class WeatherType {
     /** にほんばれ */
     NIHONBARE,
+
     /** あめ */
     RAIN,
+
     /** すなあらし */
     SANDSTORM,
+
     /** あられ */
     HAIL,
+
     /** 天候なし */
     NONE
 }

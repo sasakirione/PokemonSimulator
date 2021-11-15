@@ -10,8 +10,10 @@ import com.sasakirione.pokemon.simulator.domain.value.nature.TypeSelect
 class FieldAll {
     /** フィールド */
     private var field: Field = Field(FieldType.NONE)
+
     /** その他の場にかかる効果 */
     private val fieldEffortEtc: FieldEffortEtc = FieldEffortEtc()
+
     /** 天気 */
     private var weather: Weather = Weather(WeatherType.NONE)
 

@@ -28,17 +28,17 @@ class Ability(private val abilityName: String) {
      */
     fun getMoveDamageCorrect(moveType: TypeSelect, hpOneThird: Boolean): Double = when {
         (abilityName == AbilityConst.TRANSISTOR) && (moveType == TypeSelect.ELECTRIC)
-            -> 1.5
+        -> 1.5
         (abilityName == AbilityConst.DRAGONS_MAW) && (moveType == TypeSelect.DRAGON)
-            -> 1.5
+        -> 1.5
         (abilityName == AbilityConst.BLAZE) && (moveType == TypeSelect.FIRE) && hpOneThird
-            -> 1.5
+        -> 1.5
         (abilityName == AbilityConst.SWARM) && (moveType == TypeSelect.BUG) && hpOneThird
-            -> 1.5
+        -> 1.5
         (abilityName == AbilityConst.TORRENT) && (moveType == TypeSelect.WATER) && hpOneThird
-            -> 1.5
+        -> 1.5
         (abilityName == AbilityConst.OVER_GROW) && (moveType == TypeSelect.GRASS) && hpOneThird
-            -> 1.5
+        -> 1.5
         else -> 1.0
     }
 

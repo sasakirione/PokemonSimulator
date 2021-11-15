@@ -13,20 +13,28 @@ import com.sasakirione.pokemon.simulator.domain.value.nature.TypeSelect
 class Move(val name: String, val pokemon: Pokemon) {
     /** 技のタイプ */
     val moveType: TypeSelect
+
     /** 技の威力 */
     private val movePower: Int
+
     /** 技の種類 */
     val moveClass: MoveClass
+
     /** 技の優先度 */
     val priority: Int
+
     /** 技の命中率 */
     private val accuracy: Int
+
     /** 技の連続仕様 */
     val moveCombo: MoveCombo
+
     /** 技の急所ランク */
     val vitalRank: VitalRank
+
     /** 技のターン消費仕様 */
     val multipleMove: MultipleMove
+
     /** 接触技判定(trueの場合は接触技) */
     val contact: Boolean
 

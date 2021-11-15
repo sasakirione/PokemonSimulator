@@ -11,6 +11,7 @@ class Field(private val field: FieldType) {
     /** 残りターン数 */
     var remainingTurnNumber: Int = 5
         private set
+
     /** タイプによる倍率 */
     private val typeBoostConst: Double = CalculationConst.ONE_POINT_THREE
 
@@ -19,7 +20,7 @@ class Field(private val field: FieldType) {
      * @return 残りターン数が0になったらtrueを返す
      */
     fun forwardTurn(): Boolean {
-        if(remainingTurnNumber == 1) {
+        if (remainingTurnNumber == 1) {
             return true
         }
         remainingTurnNumber -= 1
@@ -31,7 +32,7 @@ class Field(private val field: FieldType) {
      * @param type 技のタイプ
      * @return 技のダメージ倍率
      */
-    fun damageCorrectionFromMoveType(type: TypeSelect): Double = when(field to type) {
+    fun damageCorrectionFromMoveType(type: TypeSelect): Double = when (field to type) {
         FieldType.ELECTRIC_FIELD to TypeSelect.ELECTRIC -> typeBoostConst
         FieldType.GRASS_FIELD to TypeSelect.GRASS -> typeBoostConst
         FieldType.MIST_FIELD to TypeSelect.FAIRLY -> typeBoostConst

@@ -15,18 +15,19 @@ import java.util.*
 /**
  * ポケモンの技のデータをcsvファイルから取得するクラス
  */
-class PokemonMoveDataGet: PokemonMoveDataGetInterface {
+class PokemonMoveDataGet : PokemonMoveDataGetInterface {
     /**
      * プロパティファイルの読み込み
      */
-    private val properties = Properties().apply{File("src/main/resources/path.properties").inputStream().use(this::load)}
+    private val properties =
+        Properties().apply { File("src/main/resources/path.properties").inputStream().use(this::load) }
 
     /**
      * 技の情報をDTOにつめて返します
      * @param name 技の名前
      * @return 技用DTO
      */
-    override fun getMove(name: String): MoveDTO{
+    override fun getMove(name: String): MoveDTO {
         // CSVから生データを取得
         val res = getMoveData(name)
 
@@ -71,8 +72,8 @@ class PokemonMoveDataGet: PokemonMoveDataGetInterface {
         // 生データで設定がない場合を除外
         if (res.size < 12) {
             return
-        // デフォルト値と一緒の場合も除外
-        } else if (res[11] == "1"){
+            // デフォルト値と一緒の場合も除外
+        } else if (res[11] == "1") {
             return
         } else {
             outDTO.multipleMove = when (res[11]) {
@@ -93,8 +94,8 @@ class PokemonMoveDataGet: PokemonMoveDataGetInterface {
         // 生データで設定がない場合を除外
         if (res.size < 10) {
             return
-        // デフォルト値と一緒の場合(急所に当たりやすかったり確定急所じゃない技)の場合は除外
-        } else if (res[9] == "1"){
+            // デフォルト値と一緒の場合(急所に当たりやすかったり確定急所じゃない技)の場合は除外
+        } else if (res[9] == "1") {
             return
         } else {
             outDTO.vitalRank = when (res[9]) {
@@ -115,8 +116,8 @@ class PokemonMoveDataGet: PokemonMoveDataGetInterface {
         // 生データで設定がない場合を除外
         if (res.size < 11) {
             return
-        // デフォルト値と一緒の場合(連続技じゃない技)の場合は除外
-        } else if (res[10] == "1"){
+            // デフォルト値と一緒の場合(連続技じゃない技)の場合は除外
+        } else if (res[10] == "1") {
             return
         } else {
             outDTO.moveCombo = when (res[10]) {

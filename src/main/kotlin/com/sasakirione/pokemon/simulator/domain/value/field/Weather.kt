@@ -14,15 +14,15 @@ class Weather(private val weather: WeatherType) {
      * @param moveType 技のタイプ
      * @return ダメージ補正倍率
      */
-    fun damageCorrectionFromMoveType (moveType: TypeSelect): Double = when {
+    fun damageCorrectionFromMoveType(moveType: TypeSelect): Double = when {
         weather == WeatherType.NIHONBARE && moveType == TypeSelect.FIRE
-            -> CalculationConst.ONE_POINT_FIVE
+        -> CalculationConst.ONE_POINT_FIVE
         weather == WeatherType.NIHONBARE && moveType == TypeSelect.WATER
-            -> CalculationConst.HALF
+        -> CalculationConst.HALF
         weather == WeatherType.RAIN && moveType == TypeSelect.WATER
-            -> CalculationConst.ONE_POINT_FIVE
+        -> CalculationConst.ONE_POINT_FIVE
         weather == WeatherType.RAIN && moveType == TypeSelect.FIRE
-            -> CalculationConst.HALF
+        -> CalculationConst.HALF
         else -> 1.0
     }
 }

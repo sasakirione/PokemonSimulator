@@ -7,12 +7,16 @@ package com.sasakirione.pokemon.simulator.domain.value.move
 enum class MoveCombo {
     /** 通常攻撃技*/
     NORMAL,
+
     /** 2回固定攻撃技 */
     FIXED_TWO,
+
     /** 3回固定攻撃技 */
     FIXED_THREE,
+
     /** 1-3回攻撃技 */
     MAX_THREE,
+
     /** 2-5回攻撃技 */
     MAX_FIVE
 }

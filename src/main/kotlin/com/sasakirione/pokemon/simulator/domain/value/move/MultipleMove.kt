@@ -6,10 +6,13 @@ package com.sasakirione.pokemon.simulator.domain.value.move
 enum class MultipleMove {
     /** 通常技 */
     NORMAL,
+
     /** 反動技 */
     RECOIL,
+
     /** ため技 */
     CHARGE,
+
     /** あばれる系の技 */
     THRASH
 }
