@@ -182,20 +182,7 @@ class PokemonMoveDataGet: PokemonMoveDataGetInterface {
     private fun getMoveData(name: String): Array<String> {
         val reader = Files.newBufferedReader(Paths.get(properties.getProperty("move")), Charset.forName("UTF-8"))
 
-        val res: Array<String>
-        // 対象の技が見つかるまで上から順番に見ていく
-        while (true) {
-            // 次の行が存在しない時(最後まで見たのに技がなかった時)に例外を投げる
-            val row = reader.readLine() ?: throw InputMismatchException("技がありません")
-            val rowList = row.split(",").toTypedArray()
-
-            // 技名が一致したらデータを取得してループから抜ける
-            if (rowList[1] == name) {
-                res = rowList
-                break
-            }
-        }
-        return res
+        return DataGetFromCsv.getDataFromCsv(reader, name, message = "技が見つかりません")
     }
 
 }

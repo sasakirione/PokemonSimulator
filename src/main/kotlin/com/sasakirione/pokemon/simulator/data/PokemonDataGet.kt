@@ -1,9 +1,11 @@
 package com.sasakirione.pokemon.simulator.data
 
+import com.sasakirione.pokemon.simulator.data.DataGetFromCsv.getDataFromCsv
 import com.sasakirione.pokemon.simulator.domain.value.dynamic.Ability
 import com.sasakirione.pokemon.simulator.domain.value.nature.Type
 import com.sasakirione.pokemon.simulator.domain.value.nature.TypeSelect
 import com.sasakirione.pokemon.simulator.domain.value.status.Base
+import java.io.BufferedReader
 import java.io.File
 import java.nio.charset.Charset
 import java.nio.file.Files
@@ -97,22 +99,9 @@ class PokemonDataGet: PokemonDataGetInterface {
      * @return 該当するcsvの配列データ
      */
     private fun getPokemonData(pokemonName: String): Array<String> {
-        val reader = Files.newBufferedReader(Paths.get(properties.getProperty("pokemon")), Charset.forName("windows-31j"))
+        val reader =
+            Files.newBufferedReader(Paths.get(properties.getProperty("pokemon")), Charset.forName("windows-31j"))
 
-        val res: Array<String>
-        // 対象のポケモンが見つかるまで上から順番に見ていく
-        while (true) {
-            // 次の行が存在しない時(最後まで見たのにポケモンがなかった時)に例外を投げる
-            val row = reader.readLine() ?: throw InputMismatchException("ポケモンがありません")
-            val rowList = row.split(",").toTypedArray()
-
-            // ポケモン名が一致したらデータを取得してループから抜ける
-            if (rowList[1] == pokemonName) {
-                res = rowList
-                break
-            }
-        }
-        return res
+        return getDataFromCsv(reader, pokemonName, message = "ポケモンが見つかりません")
     }
-
 }
