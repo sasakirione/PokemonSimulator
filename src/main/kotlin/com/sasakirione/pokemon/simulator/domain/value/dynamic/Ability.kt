@@ -20,6 +20,15 @@ class Ability(private val abilityName: String) {
     }
 
     /**
+     * 素早さによる攻撃力にかかる補正値を返します
+     *
+     * @return 素早さにかかる補正値
+     */
+    fun getSpeedCorrection(): Double = when (abilityName) {
+        else -> 1.0
+    }
+
+    /**
      * 特性による技のダメージの倍率を返します
      *
      * @param moveType 技のタイプ
@@ -41,5 +50,7 @@ class Ability(private val abilityName: String) {
         -> 1.5
         else -> 1.0
     }
+
+
 
 }

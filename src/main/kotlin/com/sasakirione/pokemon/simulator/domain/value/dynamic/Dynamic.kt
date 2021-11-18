@@ -40,6 +40,14 @@ class Dynamic(maxHP: Int, ability: Ability, good: Good) {
         ability.getAttackCorrection() * statusAilment.getAttackCorrection() * good.getAttackCorrection()
 
     /**
+     * 素早さにかかる補正値を返します
+     *
+     * @return 素早さにかかる補正値倍率
+     */
+    fun getSpeedCorrection(): Double =
+        ability.getSpeedCorrection() * statusAilment.getSpeedCorrection() * good.getSpeedCorrection()
+
+    /**
      * 技のダメージにかかる補正を返します
      *
      * @param moveType 技のタイプ

@@ -51,6 +51,8 @@ class Pokemon(
      */
     fun getMoveDamageCorrection(moveType: TypeSelect): Double = (dynamic.getMoveDamageCorrection(moveType))
 
+    fun getRealSpeed(): Int = (status.getS() * dynamic.getSpeedCorrection()).roundToInt()
+
     /**
      * ポケモンの簡易作成を可能とするBuilderクラス
      *

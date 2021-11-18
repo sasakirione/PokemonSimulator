@@ -100,4 +100,11 @@ class Status(
      * @return 防御実数値
      */
     fun getB(): Int = real.first { pair -> pair.first == StatusType.B }.second
+
+    /**
+     * 素早さ実数値を取得する
+     *
+     * @return 素早さ実数値
+     */
+    fun getS(): Int = real.first { pair -> pair.first == StatusType.S }.second
 }
