@@ -34,4 +34,6 @@ class FieldAll {
      */
     fun damageCorrectionFromMoveTypeOfFly(moveType: TypeSelect): Double =
         weather.damageCorrectionFromMoveType(moveType)
+
+    fun getWhether(): Weather = this.weather
 }

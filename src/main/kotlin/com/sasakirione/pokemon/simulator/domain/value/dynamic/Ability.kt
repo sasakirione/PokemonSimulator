@@ -51,6 +51,12 @@ class Ability(private val abilityName: String) {
         else -> 1.0
     }
 
+    /**
+     * すいすいの対象の特性か
+     *
+     * @return 対象ならtrue
+     */
+    fun isSuiSui(): Boolean = abilityName == AbilityConst.SWIFT_SWIM
 
 
 }

@@ -25,4 +25,11 @@ class Weather(private val weather: WeatherType) {
         -> CalculationConst.HALF
         else -> 1.0
     }
+
+    /**
+     * すいすいの対象の天気か
+     *
+     * @return 対象ならtrue
+     */
+    fun isSuiSUi(): Boolean = weather == WeatherType.RAIN
 }

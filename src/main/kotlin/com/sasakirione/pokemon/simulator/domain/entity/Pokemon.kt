@@ -6,6 +6,7 @@ import com.sasakirione.pokemon.simulator.data.PokemonDataGetInterface
 import com.sasakirione.pokemon.simulator.domain.value.dynamic.Ability
 import com.sasakirione.pokemon.simulator.domain.value.dynamic.Dynamic
 import com.sasakirione.pokemon.simulator.domain.value.dynamic.Good
+import com.sasakirione.pokemon.simulator.domain.value.field.FieldAll
 import com.sasakirione.pokemon.simulator.domain.value.nature.Nature
 import com.sasakirione.pokemon.simulator.domain.value.nature.NatureAll
 import com.sasakirione.pokemon.simulator.domain.value.nature.Type
@@ -14,6 +15,7 @@ import com.sasakirione.pokemon.simulator.domain.value.status.Base
 import com.sasakirione.pokemon.simulator.domain.value.status.Effort
 import com.sasakirione.pokemon.simulator.domain.value.status.Individual
 import com.sasakirione.pokemon.simulator.domain.value.status.Status
+import com.sasakirione.pokemon.simulator.service.RealService
 import kotlin.math.roundToInt
 
 /**
@@ -51,7 +53,15 @@ class Pokemon(
      */
     fun getMoveDamageCorrection(moveType: TypeSelect): Double = (dynamic.getMoveDamageCorrection(moveType))
 
+    /**
+     * ポケモンの素早さ実数値を取得する
+     *
+     * @return 素早さ実数値
+     */
     fun getRealSpeed(): Int = (status.getS() * dynamic.getSpeedCorrection()).roundToInt()
+
+    fun getRealSpeed(fieldAll: FieldAll): Int = (status.getS() * dynamic.getSpeedCorrection() *
+            RealService.getRealSpeedCorrection(dynamic.getAbility(), fieldAll.getWhether())).roundToInt()
 
     /**
      * ポケモンの簡易作成を可能とするBuilderクラス

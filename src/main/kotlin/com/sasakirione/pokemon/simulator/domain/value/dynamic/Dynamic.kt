@@ -55,4 +55,6 @@ class Dynamic(maxHP: Int, ability: Ability, good: Good) {
      */
     fun getMoveDamageCorrection(moveType: TypeSelect): Double =
         ability.getMoveDamageCorrect(moveType, hp.isHPOneThird()) * good.getMoveDamageCorrect(moveType)
+
+    fun getAbility(): Ability = this.ability
 }

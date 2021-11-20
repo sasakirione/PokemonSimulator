@@ -8,4 +8,5 @@ object AbilityConst {
     const val SWARM = "むしのしらせ"
     const val DRAGONS_MAW = "りゅうのあぎと"
     const val HUGE_POWER = "ちからもち"
+    const val SWIFT_SWIM = "すいすい"
 }
