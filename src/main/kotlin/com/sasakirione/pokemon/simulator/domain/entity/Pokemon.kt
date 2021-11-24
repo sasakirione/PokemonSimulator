@@ -7,6 +7,7 @@ import com.sasakirione.pokemon.simulator.domain.value.dynamic.Ability
 import com.sasakirione.pokemon.simulator.domain.value.dynamic.Dynamic
 import com.sasakirione.pokemon.simulator.domain.value.dynamic.Good
 import com.sasakirione.pokemon.simulator.domain.value.field.FieldAll
+import com.sasakirione.pokemon.simulator.domain.value.move.Move
 import com.sasakirione.pokemon.simulator.domain.value.nature.Nature
 import com.sasakirione.pokemon.simulator.domain.value.nature.NatureAll
 import com.sasakirione.pokemon.simulator.domain.value.nature.Type
@@ -62,6 +63,10 @@ class Pokemon(
 
     fun getRealSpeed(fieldAll: FieldAll): Int = (status.getS() * dynamic.getSpeedCorrection() *
             RealService.getRealSpeedCorrection(dynamic.getAbility(), fieldAll.getWhether())).roundToInt()
+
+    fun getDamage(damage: Int) {
+
+    }
 
     /**
      * ポケモンの簡易作成を可能とするBuilderクラス

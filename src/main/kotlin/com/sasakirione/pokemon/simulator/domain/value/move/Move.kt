@@ -52,4 +52,8 @@ class Move(val name: String, val pokemon: Pokemon) {
         this.contact = inDTO.contact
     }
 
+    fun getDamage(): Int {
+        return movePower
+    }
+
 }

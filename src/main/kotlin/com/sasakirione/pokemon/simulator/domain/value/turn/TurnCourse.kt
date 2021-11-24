@@ -16,6 +16,11 @@ enum class TurnCourse {
     FIRST_MOVED,
 
     /**
+     * 2匹目の攻撃後
+     */
+    SECOND_MOVED,
+
+    /**
      * ターン終了
      */
     AFTER
