@@ -87,8 +87,7 @@ class Turn(private val sideA: Move, private val sideB: Move) {
             return when {
                 speedB < speedA -> 1
                 speedA < speedB -> -1
-                speedA == speedB -> equalsSpeed()
-                else -> 1
+                else -> equalsSpeed()
             }
         }
 

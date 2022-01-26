@@ -56,4 +56,5 @@ class Move(val name: String, val pokemon: Pokemon) {
         return movePower
     }
 
+
 }

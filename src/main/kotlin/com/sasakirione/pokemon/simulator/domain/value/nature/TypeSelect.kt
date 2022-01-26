@@ -56,5 +56,8 @@ enum class TypeSelect {
     DARK,
 
     /** フェアリー */
-    FAIRLY
+    FAIRLY,
+
+    /** タイプなし(もえつきる用) */
+    NONE
 }
