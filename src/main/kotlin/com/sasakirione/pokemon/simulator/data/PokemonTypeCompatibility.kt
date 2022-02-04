@@ -32,6 +32,7 @@ object PokemonTypeCompatibility {
         DRAGON -> typeCompatibilityDragon(defense)
         DARK -> typeCompatibilityDark(defense)
         FAIRLY -> typeCompatibilityFairly(defense)
+        NONE -> 1.0
     }
 
     /**
