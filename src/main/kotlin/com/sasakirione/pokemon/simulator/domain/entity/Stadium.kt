@@ -11,7 +11,7 @@ import com.sasakirione.pokemon.simulator.domain.value.turn.Turn
  * @property sideB B側の構築
  * @constructor フィールドの初期化
  */
-class Stadium(private val sideA: Building, private val sideB: Building) {
+class Stadium(val sideA: Building, val sideB: Building) {
     /**
      * フィールド
      */
