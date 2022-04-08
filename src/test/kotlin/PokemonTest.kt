@@ -97,4 +97,10 @@ class PokemonTest {
         val pokemon = Pokemon.PokemonSmartBuilder().setPokemon("カプ・テテフ", 1).setEffort(EffortConst.CS).setNature("おくびょう").build()
         assert("カプ・テテフ" == pokemon.getName())
     }
+
+    @Test
+    @DisplayName("簡単なロギングのテスト")
+    fun test008() {
+
+    }
 }
