@@ -1,4 +1,5 @@
 import com.sasakirione.pokemon.simulator.const.CalculationConst
+import com.sasakirione.pokemon.simulator.const.EffortConst
 import com.sasakirione.pokemon.simulator.domain.entity.Building
 import com.sasakirione.pokemon.simulator.domain.entity.Pokemon
 import com.sasakirione.pokemon.simulator.domain.entity.Stadium
@@ -93,7 +94,13 @@ class PokemonTest {
     @Test
     @DisplayName("ポケモンを担当するクラス")
     fun test007() {
-        val pokemon = Pokemon.PokemonSmartBuilder().setPokemon("カプ・テテフ", 1).setEffort(arrayOf(0,0,0,252,0,252)).setNature("おくびょう").build()
+        val pokemon = Pokemon.PokemonSmartBuilder().setPokemon("カプ・テテフ", 1).setEffort(EffortConst.CS).setNature("おくびょう").build()
         assert("カプ・テテフ" == pokemon.getName())
+    }
+
+    @Test
+    @DisplayName("簡単なロギングのテスト")
+    fun test008() {
+
     }
 }
