@@ -21,6 +21,8 @@ class Turn(private val sideA: Move, private val sideB: Move) {
 
     private var moveOrder: Int
 
+    var existsProcessingWaiting:Boolean = true
+
     init {
         val priority = comparePriority()
         moveOrder = if (priority == 0) {
@@ -36,15 +38,18 @@ class Turn(private val sideA: Move, private val sideB: Move) {
      * @return
      */
     fun go(): Turn {
+        if (!existsProcessingWaiting) {
+            return this
+        }
         when (turnCourse) {
             BEFORE -> when (moveOrder) {
                 1 -> {
                     act(sideA, sideB)
-                    act(sideB, sideA)
+                    turnCourse = FIRST_MOVED
                 }
                 -1 -> {
                     act(sideB, sideA)
-                    act(sideA, sideB)
+                    turnCourse = FIRST_MOVED
                 }
             }
             FIRST_MOVED -> when (moveOrder) {
@@ -57,9 +62,8 @@ class Turn(private val sideA: Move, private val sideB: Move) {
         return this
     }
 
-    private fun act(side: Move, notSide: Move): Int {
+    private fun act(side: Move, notSide: Move) {
         notSide.pokemon.getDamage(side.getDamage())
-        return 10
     }
 
     /**
