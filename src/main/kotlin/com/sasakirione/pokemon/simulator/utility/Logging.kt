@@ -11,12 +11,16 @@ object Logging {
         println( log.last() )
     }
 
+    fun add(message: String) {
+        log.add(message)
+    }
+
     fun putPokemon(pokemonName: String, trainerName: String) {
-        log.add("$trainerName は $pokemonName を繰り出した！")
+        add("$trainerName は $pokemonName を繰り出した！")
     }
 
     fun attack(pokemonName: String, moveName: String) {
-        log.add("$pokemonName の $moveName のこうげきだ！")
+        add("$pokemonName の $moveName のこうげきだ！")
     }
 
     fun typeMagnification(modification: Double) {
@@ -26,6 +30,6 @@ object Logging {
             modification > 1 -> "こうかばつぐんだ！"
             else -> return
         }
-        log.add(str)
+        add(str)
     }
 }

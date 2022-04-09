@@ -65,7 +65,8 @@ class Pokemon(
             RealService.getRealSpeedCorrection(dynamic.getAbility(), fieldAll.getWhether())).roundToInt()
 
     fun getDamage(damage: Int) {
-
+        val finalDamage = 10
+        dynamic.takeDamage(finalDamage)
     }
 
     /**
