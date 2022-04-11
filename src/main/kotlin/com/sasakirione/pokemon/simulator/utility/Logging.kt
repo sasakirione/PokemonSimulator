@@ -11,7 +11,7 @@ object Logging {
         println( log.last() )
     }
 
-    fun add(message: String) {
+    private fun add(message: String) {
         log.add(message)
     }
 

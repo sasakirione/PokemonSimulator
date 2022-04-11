@@ -3,6 +3,7 @@ package com.sasakirione.pokemon.simulator.domain.value.turn
 import com.sasakirione.pokemon.simulator.domain.entity.Pokemon
 import com.sasakirione.pokemon.simulator.domain.value.move.Move
 import com.sasakirione.pokemon.simulator.domain.value.turn.TurnCourse.*
+import com.sasakirione.pokemon.simulator.utility.Logging
 import kotlin.math.roundToInt
 
 /**
@@ -19,9 +20,20 @@ class Turn(private val sideA: Move, private val sideB: Move) {
      */
     var turnCourse = BEFORE
 
+    /**
+     * 技の順序
+     */
     private var moveOrder: Int
 
+    /**
+     * 操作待ちが存在しないか(Trueの場合は存在しない)
+     */
     var existsProcessingWaiting:Boolean = true
+
+    /**
+     * 操作待ちが存在する場合にどの操作を待っているか
+     */
+    var waitingReason: WaitingReason = WaitingReason.NONE
 
     init {
         val priority = comparePriority()
@@ -63,6 +75,7 @@ class Turn(private val sideA: Move, private val sideB: Move) {
     }
 
     private fun act(side: Move, notSide: Move) {
+        Logging.attack(side.pokemon.getName(), side.name)
         notSide.pokemon.getDamage(side.getDamage())
     }
 
