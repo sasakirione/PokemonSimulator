@@ -2,6 +2,7 @@ package com.sasakirione.pokemon.simulator.domain.value.turn
 
 import com.sasakirione.pokemon.simulator.domain.entity.Pokemon
 import com.sasakirione.pokemon.simulator.domain.value.move.Move
+import com.sasakirione.pokemon.simulator.domain.value.move.MoveClass.*
 import com.sasakirione.pokemon.simulator.domain.value.turn.TurnCourse.*
 import com.sasakirione.pokemon.simulator.utility.Logging
 import kotlin.math.roundToInt
@@ -76,7 +77,14 @@ class Turn(private val sideA: Move, private val sideB: Move) {
 
     private fun act(side: Move, notSide: Move) {
         Logging.attack(side.pokemon.getName(), side.name)
-        notSide.pokemon.getDamage(side.getDamage())
+        when (side.moveClass) {
+            PHYSICS -> notSide.pokemon.getDamage(side.getAttackDamage(), true)
+            SPECIAL -> notSide.pokemon.getDamage(side.getAttackDamage(), false)
+            SELF_CHANGE -> return
+            ENEMY_CHANGE -> return
+            STADIUM_CHANGE -> return
+        }
+
     }
 
     /**

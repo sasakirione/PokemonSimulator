@@ -1,9 +1,13 @@
 package com.sasakirione.pokemon.simulator.domain.value.move
 
+import com.sasakirione.pokemon.simulator.const.CalculationConst
 import com.sasakirione.pokemon.simulator.data.PokemonMoveDataGet
 import com.sasakirione.pokemon.simulator.data.PokemonMoveDataGetInterface
 import com.sasakirione.pokemon.simulator.domain.entity.Pokemon
+import com.sasakirione.pokemon.simulator.domain.value.move.MoveClass.*
 import com.sasakirione.pokemon.simulator.domain.value.nature.TypeSelect
+import com.sasakirione.pokemon.simulator.utility.CalculationUtility.fiveOutOverFiveIn
+import kotlin.math.floor
 
 /**
  * ポケモンの技を担当するクラス
@@ -52,8 +56,29 @@ class Move(val name: String, val pokemon: Pokemon) {
         this.contact = inDTO.contact
     }
 
+    /**
+     * 技の威力を返す
+     *
+     * @return
+     */
     fun getDamage(): Int {
         return movePower
+    }
+
+    /**
+     * 技の防御計算前の威力(攻撃指数)を返します
+     *
+     * @return 防御計算前の技の威力(攻撃指数)
+     */
+    fun getAttackDamage(): Int {
+        val power = when (moveClass) {
+            PHYSICS -> pokemon.getRealAttack()
+            SPECIAL -> pokemon.getRealSpecialAttack()
+            else -> return 0
+        }
+        val damage1 = floor(CalculationConst.LEVEL_50* 0.4 + 2)
+        val damage2 = floor(damage1 * movePower * power)
+        return fiveOutOverFiveIn(damage2 * pokemon.getMoveDamageCorrection(moveType))
     }
 
 

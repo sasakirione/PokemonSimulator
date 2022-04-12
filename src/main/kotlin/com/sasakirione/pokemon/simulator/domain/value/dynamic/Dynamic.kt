@@ -40,6 +40,30 @@ class Dynamic(maxHP: Int, ability: Ability, good: Good) {
         ability.getAttackCorrection() * statusAilment.getAttackCorrection() * good.getAttackCorrection()
 
     /**
+     * 特攻にかかる補正値を返します
+     *
+     * @return 特攻にかかる補正値倍率
+     */
+    fun getSpecialAttackCorrection(): Double =
+        ability.getSpecialAttackCorrection() * good.getSpAttackCorrection()
+
+    /**
+     * 防御にかかる補正値を返します
+     *
+     * @return 防御にかかる補正値倍率
+     */
+    fun getDefenseCorrection(): Double =
+        ability.getDefenseCorrection()
+
+    /**
+     * 特防にかかる補正値を返します
+     *
+     * @return 特防にかかる補正値倍率
+     */
+    fun getSpecialDefenseCorrection(): Double =
+        ability.getSpecialDefenseCorrection() * good.getSpecialDefenseCorrection()
+
+    /**
      * 素早さにかかる補正値を返します
      *
      * @return 素早さにかかる補正値倍率
@@ -61,4 +85,8 @@ class Dynamic(maxHP: Int, ability: Ability, good: Good) {
     fun takeDamage(damage: Int) {
         hp.decreaseHP(damage)
     }
+
+
+
+
 }

@@ -20,7 +20,34 @@ class Ability(private val abilityName: String) {
     }
 
     /**
-     * 素早さによる攻撃力にかかる補正値を返します
+     * 特性による特攻にかかる補正を返します
+     *
+     * @return 特攻にかかる補正
+     */
+    fun getSpecialAttackCorrection(): Double {
+        return 1.0
+    }
+
+    /**
+     * 特性による防御にかかる補正を返します
+     *
+     * @return 防御にかかる補正
+     */
+    fun getDefenseCorrection(): Double {
+        return 1.0
+    }
+
+    /**
+     * 特性による特防にかかる補正を返します
+     *
+     * @return 特防にかかる補正
+     */
+    fun getSpecialDefenseCorrection(): Double {
+        return 1.0
+    }
+
+    /**
+     * 特性による素早さにかかる補正値を返します
      *
      * @return 素早さにかかる補正値
      */

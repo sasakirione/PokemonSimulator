@@ -15,4 +15,6 @@ object CalculationConst {
     const val ONE = 1.0
     const val ONE_EIGHTH = 1.0 / 8.0
     const val ONE_POINT_SIXTEEN = 1.0 / 16.0
+
+    const val LEVEL_50 = 50
 }

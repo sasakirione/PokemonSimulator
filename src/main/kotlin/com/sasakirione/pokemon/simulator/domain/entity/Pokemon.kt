@@ -64,10 +64,33 @@ class Pokemon(
     fun getRealSpeed(fieldAll: FieldAll): Int = (status.getS() * dynamic.getSpeedCorrection() *
             RealService.getRealSpeedCorrection(dynamic.getAbility(), fieldAll.getWhether())).roundToInt()
 
-    fun getDamage(damage: Int) {
-        val finalDamage = 10
+    fun getDamage(damage: Int, isPhysical: Boolean) {
+        val finalDamage =
+            if (isPhysical) 10
+            else 10
         dynamic.takeDamage(finalDamage)
     }
+
+    /**
+     * ポケモンの特攻実数値を取得する
+     *
+     * @return 特攻実数値
+     */
+    fun getRealSpecialAttack(): Int = (status.getC() * dynamic.getSpecialAttackCorrection()).roundToInt()
+
+    /**
+     * ポケモンの防御実数値を取得する
+     *
+     * @return 防御実数値
+     */
+    fun getRealDefense(): Int = (status.getB() * dynamic.getDefenseCorrection()).roundToInt()
+
+    /**
+     * ポケモンの特防実数値を取得する
+     *
+     * @return 特防実数値
+     */
+    fun getRealSpecialDefense(): Int = (status.getD() * dynamic.getSpecialDefenseCorrection()).roundToInt()
 
     /**
      * ポケモンの簡易作成を可能とするBuilderクラス

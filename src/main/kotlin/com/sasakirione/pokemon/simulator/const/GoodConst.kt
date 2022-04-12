@@ -19,4 +19,7 @@ object GoodConst {
 
     /** こだわりメガネ */
     const val CHOICE_SPECS = "こだわりメガネ"
+
+    /** とつげきチョッキ */
+    const val ASSAULT_VEST = "とつげきチョッキ"
 }

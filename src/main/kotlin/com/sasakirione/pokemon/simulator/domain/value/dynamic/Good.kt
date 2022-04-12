@@ -33,6 +33,16 @@ class Good(private val goodName: String) {
     }
 
     /**
+     * 道具による特防にかかる補正倍率を返します
+     *
+     * @return 特防にかかる補正倍率
+     */
+    fun getSpecialDefenseCorrection(): Double = when (goodName) {
+        GoodConst.ASSAULT_VEST -> CalculationConst.ONE_POINT_FIVE
+        else -> 1.0
+    }
+
+    /**
      * 道具による素早さにかかる補正倍率を返します
      *
      * @return 素早さにかかる補正倍率
@@ -43,7 +53,7 @@ class Good(private val goodName: String) {
     }
 
     /**
-     * 特性による技のダメージの倍率を返します
+     * 道具による技のダメージの倍率を返します
      *
      * @param moveType 技のタイプ
      * @return 技のダメージの倍率
@@ -52,4 +62,5 @@ class Good(private val goodName: String) {
         GoodConst.LIFE_ORB -> CalculationConst.ONE_POINT_THREE_ORB
         else -> 1.0
     }
+
 }
