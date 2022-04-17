@@ -22,4 +22,7 @@ object GoodConst {
 
     /** とつげきチョッキ */
     const val ASSAULT_VEST = "とつげきチョッキ"
+
+    /** しんかのきせき */
+    const val EVIOLITE = "しんかのきせき"
 }

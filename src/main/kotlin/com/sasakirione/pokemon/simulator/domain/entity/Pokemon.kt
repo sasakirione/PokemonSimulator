@@ -7,7 +7,6 @@ import com.sasakirione.pokemon.simulator.domain.value.dynamic.Ability
 import com.sasakirione.pokemon.simulator.domain.value.dynamic.Dynamic
 import com.sasakirione.pokemon.simulator.domain.value.dynamic.Good
 import com.sasakirione.pokemon.simulator.domain.value.field.FieldAll
-import com.sasakirione.pokemon.simulator.domain.value.move.Move
 import com.sasakirione.pokemon.simulator.domain.value.nature.Nature
 import com.sasakirione.pokemon.simulator.domain.value.nature.NatureAll
 import com.sasakirione.pokemon.simulator.domain.value.nature.Type
@@ -65,12 +64,20 @@ class Pokemon(
             RealService.getRealSpeedCorrection(dynamic.getAbility(), fieldAll.getWhether())).roundToInt()
 
     fun getDamage(damage: Int, isPhysical: Boolean) {
-        val finalDamage =
-            if (isPhysical) 10
-            else 10
+        val damage1 =
+            if (isPhysical) (damage / getRealDefense())
+            else (damage / getRealSpecialDefense())
+        val finalDamage = (((damage1 / 50) + 2) * randomCorrection()).roundToInt()
         dynamic.takeDamage(finalDamage)
     }
 
+    /**
+     * 技のダメージにかかる乱数
+     *
+     * @return 乱数倍率
+     */
+    private fun randomCorrection(): Double =
+        (85..100).random() * 0.01
     /**
      * ポケモンの特攻実数値を取得する
      *

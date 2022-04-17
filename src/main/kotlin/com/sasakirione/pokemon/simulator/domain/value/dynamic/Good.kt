@@ -39,6 +39,17 @@ class Good(private val goodName: String) {
      */
     fun getSpecialDefenseCorrection(): Double = when (goodName) {
         GoodConst.ASSAULT_VEST -> CalculationConst.ONE_POINT_FIVE
+        GoodConst.EVIOLITE -> CalculationConst.ONE_POINT_FIVE
+        else -> 1.0
+    }
+
+    /**
+     * 道具による防御にかかる補正倍率を返します
+     *
+     * @return 防御にかかる補正倍率
+     */
+    fun getDefenseCorrection(): Double = when (goodName) {
+        GoodConst.EVIOLITE -> CalculationConst.ONE_POINT_FIVE
         else -> 1.0
     }
 

@@ -53,7 +53,7 @@ class Dynamic(maxHP: Int, ability: Ability, good: Good) {
      * @return 防御にかかる補正値倍率
      */
     fun getDefenseCorrection(): Double =
-        ability.getDefenseCorrection()
+        ability.getDefenseCorrection() * good.getDefenseCorrection()
 
     /**
      * 特防にかかる補正値を返します
