@@ -1,7 +1,5 @@
 package com.sasakirione.pokemon.simulator.domain.value.status
 
-import java.lang.IllegalArgumentException
-
 /**
  * 個体値を担当するクラス
  * @param inIndividual 個体値の配列

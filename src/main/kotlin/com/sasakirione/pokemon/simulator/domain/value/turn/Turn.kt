@@ -29,7 +29,7 @@ class Turn(private val sideA: Move, private val sideB: Move) {
     /**
      * 操作待ちが存在しないか(Trueの場合は存在しない)
      */
-    var existsProcessingWaiting:Boolean = true
+    var existsProcessingWaiting: Boolean = true
 
     /**
      * 操作待ちが存在する場合にどの操作を待っているか

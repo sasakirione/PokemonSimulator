@@ -1,7 +1,5 @@
 package com.sasakirione.pokemon.simulator.domain.value.dynamic
 
-import kotlin.random.Random
-
 /**
  * 状態異常を担当するクラス
  * @param statusAilment 状態異常の種類

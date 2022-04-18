@@ -4,11 +4,11 @@ object Logging {
     private var log = mutableListOf<String>()
 
     fun getAllLog() {
-        log.forEach{ s -> println(s) }
+        log.forEach { s -> println(s) }
     }
 
     fun getLatestLog() {
-        println( log.last() )
+        println(log.last())
     }
 
     private fun add(message: String) {

@@ -1,6 +1,5 @@
 package com.sasakirione.pokemon.simulator.service
 
-import com.sasakirione.pokemon.simulator.const.AbilityConst
 import com.sasakirione.pokemon.simulator.domain.value.dynamic.Ability
 import com.sasakirione.pokemon.simulator.domain.value.field.Weather
 
@@ -14,7 +13,7 @@ object RealService {
      */
     fun getRealSpeedCorrection(ability: Ability, weather: Weather): Double = when {
         ability.isSuiSui() && weather.isSuiSUi()
-            -> 2.0
+        -> 2.0
         else -> 1.0
     }
 }

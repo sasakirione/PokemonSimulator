@@ -23,7 +23,7 @@ class Building(private val pokemonArray: Array<Pokemon>) {
      * @param j 2匹目のポケモン
      * @param k 3匹目のポケモン
      */
-    fun setElection(i:Int, j:Int, k:Int) {
+    fun setElection(i: Int, j: Int, k: Int) {
         this.pokemonElection = arrayOf(pokemonArray[i], pokemonArray[j], pokemonArray[k])
     }
 

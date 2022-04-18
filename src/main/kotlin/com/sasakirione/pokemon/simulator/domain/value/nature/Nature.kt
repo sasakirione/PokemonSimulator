@@ -3,7 +3,6 @@ package com.sasakirione.pokemon.simulator.domain.value.nature
 import com.sasakirione.pokemon.simulator.const.NatureConst
 import com.sasakirione.pokemon.simulator.domain.value.status.StatusCorrection
 import com.sasakirione.pokemon.simulator.domain.value.status.StatusType
-import java.lang.IllegalArgumentException
 
 /**
  * 性格を担当するクラス

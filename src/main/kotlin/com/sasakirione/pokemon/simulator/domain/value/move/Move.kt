@@ -4,7 +4,8 @@ import com.sasakirione.pokemon.simulator.const.CalculationConst
 import com.sasakirione.pokemon.simulator.data.PokemonMoveDataGet
 import com.sasakirione.pokemon.simulator.data.PokemonMoveDataGetInterface
 import com.sasakirione.pokemon.simulator.domain.entity.Pokemon
-import com.sasakirione.pokemon.simulator.domain.value.move.MoveClass.*
+import com.sasakirione.pokemon.simulator.domain.value.move.MoveClass.PHYSICS
+import com.sasakirione.pokemon.simulator.domain.value.move.MoveClass.SPECIAL
 import com.sasakirione.pokemon.simulator.domain.value.nature.TypeSelect
 import com.sasakirione.pokemon.simulator.utility.CalculationUtility.fiveOutOverFiveIn
 import kotlin.math.floor
@@ -76,7 +77,7 @@ class Move(val name: String, val pokemon: Pokemon) {
             SPECIAL -> pokemon.getRealSpecialAttack()
             else -> return 0
         }
-        val damage1 = floor(CalculationConst.LEVEL_50* 0.4 + 2)
+        val damage1 = floor(CalculationConst.LEVEL_50 * 0.4 + 2)
         val damage2 = floor(damage1 * movePower * power)
         return fiveOutOverFiveIn(damage2 * pokemon.getMoveDamageCorrection(moveType))
     }

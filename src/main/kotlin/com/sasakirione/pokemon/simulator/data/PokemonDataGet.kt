@@ -5,7 +5,6 @@ import com.sasakirione.pokemon.simulator.domain.value.dynamic.Ability
 import com.sasakirione.pokemon.simulator.domain.value.nature.Type
 import com.sasakirione.pokemon.simulator.domain.value.nature.TypeSelect
 import com.sasakirione.pokemon.simulator.domain.value.status.Base
-import java.io.BufferedReader
 import java.io.File
 import java.nio.charset.Charset
 import java.nio.file.Files

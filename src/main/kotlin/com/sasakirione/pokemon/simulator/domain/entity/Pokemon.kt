@@ -77,7 +77,8 @@ class Pokemon(
         val match =
             if (move.isTypeMatch()) 1.5
             else 1.0
-        val finalDamage = (((damage1 / 50) + 2) * randomCorrection() * match * natureAll.getTypeCompatibility(move)).roundToInt()
+        val finalDamage =
+            (((damage1 / 50) + 2) * randomCorrection() * match * natureAll.getTypeCompatibility(move)).roundToInt()
         dynamic.takeDamage(finalDamage)
     }
 
@@ -88,6 +89,7 @@ class Pokemon(
      */
     private fun randomCorrection(): Double =
         (85..100).random() * 0.01
+
     /**
      * ポケモンの特攻実数値を取得する
      *

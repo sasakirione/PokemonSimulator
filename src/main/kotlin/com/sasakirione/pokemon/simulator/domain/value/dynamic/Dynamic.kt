@@ -92,6 +92,4 @@ class Dynamic(maxHP: Int, ability: Ability, good: Good) {
     }
 
 
-
-
 }
