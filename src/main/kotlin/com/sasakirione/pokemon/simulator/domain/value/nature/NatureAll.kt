@@ -1,5 +1,7 @@
 package com.sasakirione.pokemon.simulator.domain.value.nature
 
+import com.sasakirione.pokemon.simulator.domain.value.move.Move
+
 /**
  * 性格やタイプを担当するクラス
  *
@@ -10,4 +12,5 @@ package com.sasakirione.pokemon.simulator.domain.value.nature
 class NatureAll(val nature: Nature, private var type: Type) {
     fun isTypeMatch(moveType: TypeSelect): Boolean = type.isMatch(moveType)
 
+    fun getTypeCompatibility(move: Move) = type.getTypeCompatibility(move)
 }

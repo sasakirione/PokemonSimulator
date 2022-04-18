@@ -7,6 +7,7 @@ import com.sasakirione.pokemon.simulator.domain.value.dynamic.Ability
 import com.sasakirione.pokemon.simulator.domain.value.dynamic.Dynamic
 import com.sasakirione.pokemon.simulator.domain.value.dynamic.Good
 import com.sasakirione.pokemon.simulator.domain.value.field.FieldAll
+import com.sasakirione.pokemon.simulator.domain.value.move.Move
 import com.sasakirione.pokemon.simulator.domain.value.nature.Nature
 import com.sasakirione.pokemon.simulator.domain.value.nature.NatureAll
 import com.sasakirione.pokemon.simulator.domain.value.nature.Type
@@ -69,14 +70,14 @@ class Pokemon(
      * @param damage 攻撃補正済みダメージ数
      * @param isPhysical 物理攻撃かどうか
      */
-    fun takeDamage(damage: Int, isPhysical: Boolean, typeMatch: Boolean) {
+    fun takeDamage(damage: Int, isPhysical: Boolean, move: Move) {
         val damage1 =
             if (isPhysical) (damage / getRealDefense())
             else (damage / getRealSpecialDefense())
         val match =
-            if (typeMatch) 1.5
+            if (move.isTypeMatch()) 1.5
             else 1.0
-        val finalDamage = (((damage1 / 50) + 2) * randomCorrection() * match).roundToInt()
+        val finalDamage = (((damage1 / 50) + 2) * randomCorrection() * match * natureAll.getTypeCompatibility(move)).roundToInt()
         dynamic.takeDamage(finalDamage)
     }
 

@@ -78,8 +78,8 @@ class Turn(private val sideA: Move, private val sideB: Move) {
     private fun act(side: Move, notSide: Move) {
         Logging.attack(side.pokemon.getName(), side.name)
         when (side.moveClass) {
-            PHYSICS -> notSide.pokemon.takeDamage(side.getAttackDamage(), true, side.isTypeMatch())
-            SPECIAL -> notSide.pokemon.takeDamage(side.getAttackDamage(), false, side.isTypeMatch())
+            PHYSICS -> notSide.pokemon.takeDamage(side.getAttackDamage(), true, side)
+            SPECIAL -> notSide.pokemon.takeDamage(side.getAttackDamage(), false, side)
             SELF_CHANGE -> return
             ENEMY_CHANGE -> return
             STADIUM_CHANGE -> return
