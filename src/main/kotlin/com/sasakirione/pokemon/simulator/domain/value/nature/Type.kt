@@ -79,4 +79,6 @@ class Type(private val type: List<TypeSelect>) {
     private fun normalTypeCompatibility(moveType: TypeSelect): Double = type.map { type ->
         PokemonTypeCompatibility.typeCompatibility(moveType, type)
     }.reduce { acc, d -> acc * d }
+
+    fun isMatch(moveType: TypeSelect): Boolean = type.contains(moveType)
 }

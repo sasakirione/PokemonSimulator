@@ -82,6 +82,11 @@ class Dynamic(maxHP: Int, ability: Ability, good: Good) {
 
     fun getAbility(): Ability = this.ability
 
+    /**
+     * 実際にダメージによってHPを減らす処理を行う
+     *
+     * @param damage ダメージ実数値
+     */
     fun takeDamage(damage: Int) {
         hp.decreaseHP(damage)
     }

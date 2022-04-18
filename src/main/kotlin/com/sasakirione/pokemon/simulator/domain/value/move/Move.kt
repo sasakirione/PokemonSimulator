@@ -81,5 +81,7 @@ class Move(val name: String, val pokemon: Pokemon) {
         return fiveOutOverFiveIn(damage2 * pokemon.getMoveDamageCorrection(moveType))
     }
 
+    fun isTypeMatch(): Boolean = pokemon.isTypeMatch(moveType)
+
 
 }

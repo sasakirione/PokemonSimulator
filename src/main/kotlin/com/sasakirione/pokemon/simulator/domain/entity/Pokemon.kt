@@ -63,11 +63,20 @@ class Pokemon(
     fun getRealSpeed(fieldAll: FieldAll): Int = (status.getS() * dynamic.getSpeedCorrection() *
             RealService.getRealSpeedCorrection(dynamic.getAbility(), fieldAll.getWhether())).roundToInt()
 
-    fun getDamage(damage: Int, isPhysical: Boolean) {
+    /**
+     * ダメージ処理を行う
+     *
+     * @param damage 攻撃補正済みダメージ数
+     * @param isPhysical 物理攻撃かどうか
+     */
+    fun takeDamage(damage: Int, isPhysical: Boolean, typeMatch: Boolean) {
         val damage1 =
             if (isPhysical) (damage / getRealDefense())
             else (damage / getRealSpecialDefense())
-        val finalDamage = (((damage1 / 50) + 2) * randomCorrection()).roundToInt()
+        val match =
+            if (typeMatch) 1.5
+            else 1.0
+        val finalDamage = (((damage1 / 50) + 2) * randomCorrection() * match).roundToInt()
         dynamic.takeDamage(finalDamage)
     }
 
@@ -98,6 +107,8 @@ class Pokemon(
      * @return 特防実数値
      */
     fun getRealSpecialDefense(): Int = (status.getD() * dynamic.getSpecialDefenseCorrection()).roundToInt()
+
+    fun isTypeMatch(moveType: TypeSelect): Boolean = natureAll.isTypeMatch(moveType)
 
     /**
      * ポケモンの簡易作成を可能とするBuilderクラス

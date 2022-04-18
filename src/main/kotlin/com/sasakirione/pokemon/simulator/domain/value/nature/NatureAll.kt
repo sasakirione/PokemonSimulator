@@ -8,5 +8,6 @@ package com.sasakirione.pokemon.simulator.domain.value.nature
  * @constructor 性格やタイプを設定します
  */
 class NatureAll(val nature: Nature, private var type: Type) {
+    fun isTypeMatch(moveType: TypeSelect): Boolean = type.isMatch(moveType)
 
 }
